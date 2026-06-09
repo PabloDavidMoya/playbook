@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DESAF-IA — Manual de Arranque Rápido</title>
+  <meta name="description" content="Tu mapa de ejecución y ventaja competitiva en la era de la IA. 10 prompts listos para usar, onboarding de élite y estrategias de automatización." />
+  <link rel="icon" type="image/png" href="./logoazul.png" />
+  <link rel="apple-touch-icon" href="./logoazul.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,900;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <canvas id="matrix-canvas"></canvas>
+  <div id="scroll-progress"></div>
+
+  <!-- ═══════════════════════ NAV ═══════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <img src="./logoazul.png" alt="Desaf-IA" />
+        <span>DESAF-IA</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#bienvenida" class="nav-link">Inicio</a></li>
+        <li><a href="#paso1" class="nav-link">Motor IA</a></li>
+        <li><a href="#paso2" class="nav-link">Onboarding</a></li>
+        <li><a href="#paso3" class="nav-link">10 Prompts</a></li>
+        <li><a href="#matriz" class="nav-link">Desafíos</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-content reveal">
+      <div class="badge">🚀 Comunidad Desaf-IA · Tu ventaja competitiva en la era digital</div>
+      <h1>DESAF-IA<br /><span class="highlight">El Manual de<br />Arranque Rápido</span></h1>
+      <p class="hero-sub">Este no es un manual teórico.<br />Es tu mapa de ejecución.</p>
+      <div class="hero-cta">
+        <a href="#paso3" class="btn-primary">Ver los 10 Prompts →</a>
+        <a href="#paso2" class="btn-secondary">Entrenar mi IA</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">10</span><span class="stat-lbl">Prompts listos</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-lbl">Motores de IA</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-lbl">Onboarding de élite</span></div>
+      </div>
+    </div>
+    <div class="hero-img reveal">
+      <div class="hero-img-frame">
+        <img src="./polnaranja2.png" alt="Desaf-IA" />
+        <div class="hero-img-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ BIENVENIDA ═══════════════════════ -->
+  <section class="section" id="bienvenida">
+    <div class="section-inner">
+      <p class="section-label">El Movimiento</p>
+      <h2>Bienvenido al <span class="highlight">Movimiento&nbsp;Desaf-IA</span></h2>
+
+      <div class="welcome-block reveal">
+        <p class="welcome-lead"><strong>Esto no es un recurso más. Es un quiebre definitivo en el tablero.</strong></p>
+        <p>Desaf-IA nació por una realidad incómoda: la revolución de la Inteligencia Artificial está dejando a miles de personas atrás. Y no por falta de ganas o pereza, sino porque el entorno está saturado de tecnicismos complejos, gurúes de humo y herramientas que cambian tan rápido que confunden a cualquiera.</p>
+        <p>Acá hacemos las cosas de forma completamente distinta. No necesitás ser programador, ni diseñador, ni un experto avanzado en sistemas para dominar este nuevo mercado. Lo que necesitás es aprender a dominar las herramientas correctas y saber cómo <strong>darle las órdenes precisas a la máquina</strong> para clonar tu tiempo, resolver problemas operativos reales y abrir nuevas fuentes de ingresos de forma rápida y práctica.</p>
+        <p>Si sos un emprendedor que maneja mil tareas a la vez, un creador de contenido que busca optimizar su alcance, o un profesional que entendió que el mercado laboral cambió para siempre... estás en el lugar correcto.</p>
+      </div>
+
+      <!-- Plan de Acción -->
+      <p class="section-label" style="margin-top:80px;">El Plan de Acción</p>
+      <h2>Lo que vas a <span class="highlight">lograr y dominar</span></h2>
+      <div class="cards-grid">
+        <div class="card reveal">
+          <div class="card-icon">⚡</div>
+          <h3>Tu Herramienta de Poder</h3>
+          <p>Vas a elegir tu asistente principal estratégico según tu flujo de trabajo y necesidades reales.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">🧠</div>
+          <h3>Entrenamiento de Élite</h3>
+          <p>Vas a configurar tu IA con una plantilla avanzada de inyección de contexto para que entienda exactamente quién sos, qué hacés y cómo pensás.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">💻</div>
+          <h3>10 Prompts de Ejecución Inmediata</h3>
+          <p>Fórmulas listas para copiar, pegar y resolver problemas operativos y de negocio hoy mismo.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">🎯</div>
+          <h3>Ventaja Competitiva Activa</h3>
+          <p>El enfoque y la mentalidad práctica para moverte con total seguridad en un mercado altamente competitivo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ PASO 1: MOTOR DE IA ═══════════════════════ -->
+  <section class="section alt-section" id="paso1">
+    <div class="section-inner">
+      <p class="section-label">PASO 1</p>
+      <h2>Elegí tu <span class="highlight">Motor de IA</span></h2>
+      <p class="section-sub">Antes de empezar a automatizar, tenés que elegir el cerebro principal con el que vas a trabajar. No te preocupes por la complejidad técnica; estas plataformas están diseñadas para interactuar en lenguaje natural.</p>
+
+      <div class="tools-grid">
+
+        <div class="tool-card reveal">
+          <img src="./chatgptlogo.png" alt="ChatGPT" class="tool-logo" />
+          <h3>ChatGPT</h3>
+          <p class="tool-strength">El estándar indiscutido de la industria. Rápido, intuitivo, versátil y con una base gigantesca de datos.</p>
+          <div class="tool-badge">Ideal para arrancar</div>
+          <p class="tool-for">Ideal si querés arrancar ya mismo, de forma fluida y sin complicaciones operativas.</p>
+        </div>
+
+        <div class="tool-card featured reveal">
+          <div class="featured-ribbon">⭐ Recomendado</div>
+          <img src="./cludelogo.png" alt="Claude" class="tool-logo" />
+          <h3>Claude</h3>
+          <p class="tool-strength">Destaca de forma sobresaliente en razonamiento profundo, análisis de contexto largo y redacción con estilo impecable.</p>
+          <div class="tool-badge">Para estrategia avanzada</div>
+          <p class="tool-for">Excelente para copys de venta, diseño de estrategias complejas y lógica estructurada.</p>
+        </div>
+
+        <div class="tool-card reveal">
+          <img src="./geminilogo.png" alt="Google Gemini" class="tool-logo" />
+          <h3>Google Gemini</h3>
+          <p class="tool-strength">Integración nativa absoluta con todo el ecosistema de Google (Docs, Sheets, Gmail y Drive).</p>
+          <div class="tool-badge">Para usuarios Google</div>
+          <p class="tool-for">La opción ideal si tu flujo diario de trabajo ya depende fuertemente de las herramientas de Google.</p>
+        </div>
+
+      </div>
+
+      <div class="tip-box reveal">
+        <span class="tip-icon">💡</span>
+        <div>
+          <strong>Consejo Práctico de Desaf-IA:</strong> Si estás arrancando completamente de cero, ChatGPT o Claude son tus mejores alternativas para sacarle el máximo provecho a este libro de trabajo. Elegí uno, abrilo en una pestaña nueva y pasemos directo a la configuración de tu entorno.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ PASO 2: ONBOARDING ═══════════════════════ -->
+  <section class="section" id="paso2">
+    <div class="section-inner">
+      <p class="section-label">PASO 2</p>
+      <h2>Entrená a tu <span class="highlight">Asistente Estratégico</span></h2>
+      <p class="section-sub">El mayor error de los principiantes es tratar a la IA como si fuera un buscador de Google: hacen preguntas cortas y reciben respuestas genéricas. Para que una IA te devuelva oro, tenés que inyectarle <strong>contexto de negocio e identidad real</strong> desde el inicio.</p>
+
+      <div class="instructions-box reveal">
+        <h3>📋 Instrucciones de Configuración</h3>
+        <ol>
+          <li>Copiá el bloque de texto que se encuentra abajo.</li>
+          <li>Pegalo directamente en el chat de la herramienta de IA que elegiste.</li>
+          <li>Rellená los espacios entre corchetes <code>[...]</code> con tus datos reales. Sé claro, directo y específico.</li>
+        </ol>
+        <p class="instructions-note">Una vez completado, tu asistente estará listo para operar a tu nivel.</p>
+      </div>
+
+      <div class="prompt-block big-prompt reveal" id="onboarding-block">
+        <div class="prompt-header">
+          <span class="prompt-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            Prompt de Onboarding — Copiá y personalizá los campos [...]
+          </span>
+          <button class="copy-btn" data-target="onboarding-text" onclick="copyPrompt(this)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Copiar Prompt</span>
+          </button>
+        </div>
+        <pre id="onboarding-text">A partir de hoy, vas a actuar como mi asistente de IA personal, mi asesor estratégico detrás de escena, experto en eficiencia y motor de ejecución, todo en uno.
+
+Tratá cada tarea, consulta o estrategia que te traiga con la mentalidad de un operador de élite que domina los negocios digitales, el marketing de respuesta directa, la creación de contenido persuasivo, los sistemas automatizados y la productividad radical. Combiná las habilidades de un director de operaciones (COO), un copywriter de conversión, un estratega de negocios y un especialista enfocado en la automatización.
+
+Tu estilo de comunicación debe ser claro, directo, estratégico y profundamente práctico. No uses lenguaje de relleno ("fluffy"), discursos motivacionales vacíos, ni jerga corporativa innecesaria. Tu único objetivo es ayudarme a ahorrar tiempo, tomar decisiones óptimas, eliminar la fricción operativa y acelerar mis resultados.
+
+Antes de arrancar, te voy a dar el contexto de mi entorno y mis objetivos para que adaptes cada respuesta de ahora en adelante:
+
+1. MI ROL Y NEGOCIO: Actualmente trabajo como [inserta tu rol/profesión] en el sector de [inserta tu industria/nicho] o lidero un negocio de [inserta tipo de negocio/comunidad]. Las personas a las que ayudo o sirvo son típicamente [describe a tu cliente ideal o audiencia en una sola oración].
+
+2. MIS OBJETIVOS (Próximos 6-12 meses):
+   - Objetivo Principal: [Ej. Lanzar y escalar mi comunidad digital].
+   - Objetivo Secundario: [Ej. Automatizar la creación de contenido].
+   - Tercer Objetivo: [Ej. Conseguir mis primeros 50 miembros activos].
+
+3. MI MAYOR CUELLO DE BOTELLA: El principal obstáculo, frustración o tarea que me está frenando hoy en día es [inserta tu mayor problema o limitación actual]. Necesito resolver esto con urgencia.
+
+4. CÓMO VAMOS A USAR LA IA: Busco tu ayuda específicamente para [inserta qué querés que haga la IA por vos: ej. escribir copys de alta conversión, armar flujos de trabajo, automatizar tareas repetitivas, etc.]. No quiero teorías, quiero flujos que den resultados. Mis herramientas habituales de trabajo son [lista tus herramientas: ej. Skool, Google Docs, DaVinci Resolve, Stripe, etc.]. Tus propuestas deben ser compatibles con ellas.
+
+5. TONO Y FORMATO: Prefiero que te comuniques conmigo con un tono [inserta tu estilo preferido: ej. experto y conciso, directo al grano, estilo técnico, etc.]. El tipo de material que suelo producir incluye [lista tu contenido: ej. videos para redes, correos de venta, landing pages, tutoriales, esquemas operativos].
+
+6. MI RUTINA OPERATIVA: Me manejo bajo ciertos sistemas o estructuras como [inserta tu sistema: ej. calendario de contenido semanal, lanzamientos de infoproductos, revisiones los domingos].
+
+Si pudieras eliminar una sola tarea pesada de mi agenda esta semana, sería: [inserta la tarea más tediosa que querés delegar]. Y si la IA pudiera resolverme un solo problema crítico ahora mismo, elegiría: [inserta tu solución ideal].
+
+Ya conocés mi perfil, mis reglas de juego y lo que estoy construyendo. Actuá en consecuencia. Sé rápido, inteligente y profundamente estratégico. Ayudame a operar en mi nivel más alto.</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ PASO 3: 10 PROMPTS ═══════════════════════ -->
+  <section class="section alt-section" id="paso3">
+    <div class="section-inner">
+      <p class="section-label">PASO 3</p>
+      <h2>Activá tu <span class="highlight">Ventaja Competitiva</span></h2>
+      <p class="section-sub">Una vez que tu asistente asimiló tu perfil con el prompt anterior, es hora de ponerlo a trabajar de verdad. Elegí el comando que ataque tu necesidad más urgente hoy, copialo y mirá la diferencia radical en los resultados.</p>
+
+      <div class="prompts-grid">
+
+        <!-- 01 -->
+        <div class="prompt-card reveal">
+          <div class="prompt-card-header">
+            <span class="prompt-num">01</span>
+            <h3>Destrucción de Cuellos de Botella Operativos</h3>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-header">
+              <span class="prompt-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                Prompt listo para usar
+              </span>
+              <button class="copy-btn" data-target="p-text-1" onclick="copyPrompt(this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <pre id="p-text-1">Analizá el tipo de negocio y el rol que te di en mi onboarding. Identificá 3 puntos críticos o cuellos de botella en mi flujo diario que la IA podría automatizar o resolver esta misma semana. Dame soluciones de 'victoria rápida' (quick wins) que me devuelvan tiempo de inmediato. Si necesitás más detalles sobre mis rutinas, preguntame antes de responder.</pre>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="prompt-card reveal">
+          <div class="prompt-card-header">
+            <span class="prompt-num">02</span>
+            <h3>Clonación de Tiempo y Automatización</h3>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-header">
+              <span class="prompt-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                Prompt listo para usar
+              </span>
+              <button class="copy-btn" data-target="p-text-2" onclick="copyPrompt(this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <pre id="p-text-2">Mirá mi modelo de negocio actual. Recomendame una sola automatización concreta usando IA (y herramientas como Make o Zapier) que me permita ahorrar más de 3 horas semanales de trabajo repetitivo. Explicame el paso a paso lógico para armarla y decime qué herramientas gratuitas o de bajo costo necesito.</pre>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="prompt-card reveal">
+          <div class="prompt-card-header">
+            <span class="prompt-num">03</span>
+            <h3>Sistema de Contenido Infinito (Sin Burnout)</h3>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-header">
+              <span class="prompt-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                Prompt listo para usar
+              </span>
+              <button class="copy-btn" data-target="p-text-3" onclick="copyPrompt(this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <pre id="p-text-3">Actuá como un estratega de contenido experto en marketing de respuesta directo. Diseñá un plan de contenidos mensual simplificado para mis canales que me permita mantener consistencia y autoridad online sin dedicarle más de 2 horas a la semana. Estructurá el flujo usando la IA para la generación de ideas y guiones paso a paso.</pre>
+          </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="prompt-card reveal">
+          <div class="prompt-card-header">
+            <span class="prompt-num">04</span>
+            <h3>Consultor de Enfoque y Productividad Radical</h3>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-header">
+              <span class="prompt-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                Prompt listo para usar
+              </span>
+              <button class="copy-btn" data-target="p-text-4" onclick="copyPrompt(this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <pre id="p-text-4">Suelo tener problemas para mantener el foco en las tareas de alto valor y organizarme entre la operación diaria y el crecimiento estratégico. Diseñá un flujo de trabajo optimizado y recomendame herramientas específicas de IA o metodologías que me ayuden a priorizar mis tareas diarias, bloquear distracciones y gestionar mejor mi tiempo.</pre>
+          </div>
+        </div>
+
+        <!-- 05 -->
+        <div class="prompt-card reveal">
+          <div class="prompt-card-header">
+            <span class="prompt-num">05</span>
+            <h3>Auditoría de Mentalidad Tecnológica</h3>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-header">
+              <span class="prompt-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                Prompt listo para usar
+              </span>
+              <button class="copy-btn" data-target="p-text-5" onclick="copyPrompt(this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <pre id="p-text-5">Actuá como un coach de mentalidad de alto rendimiento enfocado en la era digital. ¿Cuáles son los sesgos, miedos o creencias limitantes más comunes que bloquean a profesionales como yo a la hora de integrar la IA de forma diaria y estratégica? Dame 3 giros mentales prácticos para tomar el control y liderar con total confianza.</pre>
+          </div>
+        </div>
+
+        <!-- 06 -->
+        <div class="prompt-card reveal">
+          <div class="prompt-card-header">
+            <span class="prompt-num">06</span>
+            <h3>Optimización de la Experiencia del Cliente (LTV)</h3>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-header">
+              <span class="prompt-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                Prompt listo para usar
+              </span>
+              <button class="copy-btn" data-target="p-text-6" onclick="copyPrompt(this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <pre id="p-text-6">Dame 3 ideas disruptivas para mejorar drásticamente la experiencia de mis clientes o los miembros de mi comunidad utilizando herramientas de IA gratuitas o muy económicas. El objetivo es aumentar la retención y el valor percibido desde el primer día. Haceme preguntas de claridad si necesitás detalles de mi servicio o plataforma.</pre>
+          </div>
+        </div>
+
+        <!-- 07 -->
+        <div class="prompt-card reveal">
+          <div class="prompt-card-header">
+            <span class="prompt-num">07</span>
+            <h3>Ingeniería de Ofertas de Alta Conversión</h3>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-header">
+              <span class="prompt-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                Prompt listo para usar
+              </span>
+              <button class="copy-btn" data-target="p-text-7" onclick="copyPrompt(this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <pre id="p-text-7">Quiero mejorar la conversión de mi propuesta de valor actual. Analizá lo que te conté en mi onboarding y dame 3 estrategias para inyectarle más claridad, urgencia real y confianza a mi oferta utilizando ganchos basados en IA o metodologías de copywriting de conversión avanzadas.</pre>
+          </div>
+        </div>
+
+        <!-- 08 -->
+        <div class="prompt-card reveal">
+          <div class="prompt-card-header">
+            <span class="prompt-num">08</span>
+            <h3>Toma de Decisiones Estratégicas a Alta Velocidad</h3>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-header">
+              <span class="prompt-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                Prompt listo para usar
+              </span>
+              <button class="copy-btn" data-target="p-text-8" onclick="copyPrompt(this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <pre id="p-text-8">Basado en los objetivos a 6 y 12 meses que te compartí, ¿cuál es la decisión más crítica que debería tomar esta semana para acelerar el proceso? Mostrame un ejemplo exacto de cómo puedo usar una herramienta de IA (como un análisis de pros y contras ponderado o simulación de escenarios) para tomar esa decisión de forma inteligente hoy mismo.</pre>
+          </div>
+        </div>
+
+        <!-- 09 -->
+        <div class="prompt-card reveal">
+          <div class="prompt-card-header">
+            <span class="prompt-num">09</span>
+            <h3>Delegación Absoluta de Tareas Tediosas</h3>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-header">
+              <span class="prompt-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                Prompt listo para usar
+              </span>
+              <button class="copy-btn" data-target="p-text-9" onclick="copyPrompt(this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <pre id="p-text-9">Identificá las 3 tareas más repetitivas, mecánicas y desgastantes que mencioné en mi perfil de onboarding o que son típicas de mi sector operativo. Explicame cómo puedo delegárselas por completo a un agente de IA, qué prompts específicos usar para esa tarea y cómo auditar el resultado para asegurar la máxima calidad.</pre>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="prompt-card reveal">
+          <div class="prompt-card-header">
+            <span class="prompt-num">10</span>
+            <h3>Escudo Antiobsoleto (Habilidades del Futuro)</h3>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-header">
+              <span class="prompt-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                Prompt listo para usar
+              </span>
+              <button class="copy-btn" data-target="p-text-10" onclick="copyPrompt(this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <pre id="p-text-10">Actuá como un cazatalentos y consultor de carrera enfocado en tecnología de vanguardia. Según las tendencias más recientes de este año, ¿cuáles son las 3 habilidades específicas en IA que debo dominar a nivel profesional para volverme completamente insustituible en mi nicho de mercado? Dame un plan de aprendizaje ultra corto para cada una.</pre>
+          </div>
+        </div>
+
+      </div><!-- /prompts-grid -->
+
+      <!-- BONUS PROMPT -->
+      <div class="bonus-section reveal">
+        <div class="bonus-header">
+          <span class="bonus-icon">🎁</span>
+          <div>
+            <p class="bonus-label">Prompt de Bonificación</p>
+            <h3>La Conversión Clave</h3>
+          </div>
+        </div>
+        <div class="prompt-block">
+          <div class="prompt-header">
+            <span class="prompt-tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+              Prompt bonus — Úsalo después de los 10 anteriores
+            </span>
+            <button class="copy-btn" data-target="p-bonus" onclick="copyPrompt(this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Copiar Bonus</span>
+            </button>
+          </div>
+          <pre id="p-bonus">Habiendo procesado todo mi perfil de onboarding, mis herramientas, dolores y objetivos: no te guardes nada. Dame las 3 ideas más audaces, avanzadas y fuera de la caja en las que creés que la IA podría potenciar mi negocio o mi día a día en este momento. Sorprendeme con oportunidades de automatización o crecimiento que probablemente no haya considerado todavía.</pre>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ MATRIZ ═══════════════════════ -->
+  <section class="section" id="matriz">
+    <div class="section-inner">
+      <p class="section-label">Resolución de Problemas</p>
+      <h2>Matriz de <span class="highlight">Desafíos Comunes</span></h2>
+      <p class="section-sub">Este manual fue diseñado para atacar estos desafíos de frente. Reconocé el tuyo y aplicá la solución de Desaf-IA.</p>
+
+      <div class="tabla-wrapper reveal">
+        <table class="tabla-desafios">
+          <thead>
+            <tr>
+              <th>Desafío Común</th>
+              <th>La Causa Real</th>
+              <th>Solución Desaf-IA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Infoxicación e Inacción</strong></td>
+              <td>Querer usar 20 herramientas de software a la vez por miedo a quedarse fuera de las tendencias (FOMO).</td>
+              <td><strong>Enfoque Láser:</strong> Dominá a fondo un solo motor de IA (ChatGPT o Claude) antes de añadir una nueva herramienta a tu flujo diario.</td>
+            </tr>
+            <tr>
+              <td><strong>Respuestas Genéricas o Planas</strong></td>
+              <td>Instrucciones vagas, textos extremadamente cortos o falta de contexto real sobre quién sos y qué necesitás solucionar.</td>
+              <td><strong>Inyección de Identidad:</strong> Usá siempre de forma obligatoria el Prompt de Onboarding de Desaf-IA en cada chat o proyecto nuevo.</td>
+            </tr>
+            <tr>
+              <td><strong>Falta de Tiempo para Implementar</strong></td>
+              <td>Intentar cambiar e implementar por completo todo tu flujo de trabajo de un día para el otro.</td>
+              <td><strong>Ataque Quirúrgico:</strong> Identificá la única tarea operativa que más te drena la energía hoy y automatizá únicamente esa durante esta semana.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ CIERRE ═══════════════════════ -->
+  <section class="section cierre-section" id="cierre">
+    <div class="section-inner">
+      <p class="section-label">El Cierre</p>
+      <h2>El Futuro No Espera,<br /><span class="highlight">Se Ejecuta</span></h2>
+
+      <p class="cierre-text reveal">Este manual de trabajo fue diseñado con un solo propósito en mente: darte claridad absoluta y empujarte a la acción masiva. El entorno de la Inteligencia Artificial se mueve a velocidades exponenciales; el software se actualiza constantemente y los modelos mejoran día tras día. Sin embargo, la ventaja competitiva real no la tiene la máquina, <strong>la tiene el operador que sabe exactamente cómo dirigirla.</strong></p>
+
+      <p class="cierre-text reveal" style="margin-top:20px;">Ya tenés las herramientas correctas, tenés el entorno de trabajo optimizado y tenés acceso a los prompts de élite listos para usar. La brecha entre los que simplemente miran y los que facturan se cierra ejecutando sin vacilar.</p>
+
+      <div class="pasos-cierre">
+        <div class="paso-item reveal">
+          <div class="paso-num">1</div>
+          <p>Abrí tu pestaña con el motor de IA que hayas elegido.</p>
+        </div>
+        <div class="paso-item reveal">
+          <div class="paso-num">2</div>
+          <p>Copiá, rellená y ejecuta el Prompt de Onboarding de Desaf-IA.</p>
+        </div>
+        <div class="paso-item reveal">
+          <div class="paso-num">3</div>
+          <p>Elegí uno de los 10 Starter Prompts y ponelo a prueba de inmediato para resolver tu primer problema.</p>
+        </div>
+      </div>
+
+      <p class="cierre-final reveal"><em>Nos vemos en los canales de la comunidad de Desaf-IA. El juego acaba de empezar.</em></p>
+
+      <div class="cta-final reveal">
+        <a href="#paso2" class="btn-primary">Entrenar mi IA ahora →</a>
+        <a href="#paso3" class="btn-secondary">Ver los 10 Prompts</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="footer">
+    <img src="./logoazul.png" alt="Desaf-IA" class="footer-logo" />
+    <p class="footer-brand">DESAF-IA</p>
+    <p>Manual de Arranque Rápido · Tu ventaja competitiva en la era digital</p>
+    <p class="footer-copy">© 2026 · Desaf-IA · Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
