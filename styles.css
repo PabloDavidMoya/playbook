@@ -530,6 +530,34 @@ body > * { position: relative; z-index: 1; }
   line-height: 1.6;
 }
 
+.install-guide-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cyan);
+  border: 1px solid rgba(0, 204, 255, 0.3);
+  background: rgba(0, 204, 255, 0.07);
+  padding: 7px 14px;
+  border-radius: 8px;
+  transition: background var(--transition), border-color var(--transition);
+  text-decoration: none;
+}
+.install-guide-link:hover {
+  background: rgba(0, 204, 255, 0.16);
+  border-color: rgba(0, 204, 255, 0.5);
+}
+
+.nav-link-highlight {
+  color: var(--cyan) !important;
+  border: 1px solid rgba(0, 204, 255, 0.3);
+  border-radius: 8px;
+}
+.nav-link-highlight:hover {
+  background: rgba(0, 204, 255, 0.1) !important;
+  color: var(--cyan) !important;
+}
+
 /* ─── Tip Box ─── */
 .tip-box {
   display: flex;
