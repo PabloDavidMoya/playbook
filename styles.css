@@ -450,27 +450,101 @@ body > * { position: relative; z-index: 1; }
   margin-bottom: 40px;
 }
 
+/* ─── 3D Tool Cards ─── */
+.tool-scene {
+  perspective: 1200px;
+  cursor: pointer;
+}
+
 .tool-card {
+  position: relative;
+  border-radius: var(--radius);
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(.2, .8, .2, 1);
+}
+
+.tool-scene:hover .tool-card,
+.tool-scene.flipped .tool-card {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  border-radius: var(--radius);
+  backface-visibility: hidden;
+}
+
+.card-front {
   position: relative;
   background: var(--card-bg);
   backdrop-filter: blur(8px);
   border: 1px solid var(--card-border);
-  border-radius: var(--radius);
   padding: 36px 28px 28px;
-  text-align: center;
-  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
-.tool-card:hover {
-  border-color: rgba(124, 58, 237, 0.4);
-  transform: translateY(-4px);
-  box-shadow: var(--glow-purple);
-}
-
-.tool-card.featured {
+.tool-card.featured .card-front {
   border-color: rgba(124, 58, 237, 0.5);
   background: rgba(12, 8, 40, 0.7);
   box-shadow: 0 0 40px rgba(124, 58, 237, 0.15);
+}
+
+.card-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #3b1a8f, var(--purple));
+  border: 1px solid rgba(124, 58, 237, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 32px 28px;
+  text-align: center;
+}
+
+.back-check {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-back h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.card-back p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.btn-back-cta {
+  display: inline-block;
+  margin-top: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-back-cta:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.55);
 }
 
 .featured-ribbon {

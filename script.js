@@ -255,7 +255,20 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 
 /* ─────────────────────────────────────────────────────
-   9. HIGHLIGHT ACTIVE PROMPT ON HOVER (subtle glow)
+   9. 3D CARD FLIP — toggle para mobile / touch
+───────────────────────────────────────────────────── */
+(function () {
+  document.querySelectorAll('.tool-scene').forEach(function (scene) {
+    scene.addEventListener('click', function (e) {
+      if (e.target.closest('.btn-back-cta')) return; // deja que el href navegue
+      scene.classList.toggle('flipped');
+    });
+  });
+})();
+
+
+/* ─────────────────────────────────────────────────────
+   10. HIGHLIGHT ACTIVE PROMPT ON HOVER (subtle glow)
 ───────────────────────────────────────────────────── */
 (function () {
   document.querySelectorAll('.prompt-card').forEach(card => {
