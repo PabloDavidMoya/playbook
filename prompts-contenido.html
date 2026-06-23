@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>10 Prompts — 30 Días de Contenido · DESAF-IA</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2314B8A6'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='17' fill='white'>D</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#030d0d;--card:#071414;--brd:rgba(20,184,166,.2);--accent:#14B8A6;--accent-lt:#5EEAD4;--txt:#F2F0FF;--muted:#9090b0;--mono:'JetBrains Mono',monospace}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+/* TOP NAV */
+.topnav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;border-bottom:1px solid var(--brd);position:sticky;top:0;background:rgba(3,13,13,.9);backdrop-filter:blur(12px);z-index:100}
+.topnav-logo{font-weight:900;font-size:17px;color:#fff;letter-spacing:-.3px}
+.topnav-logo span{color:var(--accent-lt)}
+.back-link{font-size:13px;font-weight:600;color:var(--muted);border:1px solid var(--brd);padding:6px 14px;border-radius:8px;transition:all .2s}
+.back-link:hover{color:var(--accent-lt);border-color:var(--accent)}
+
+/* HERO */
+.hero{text-align:center;padding:64px 24px 48px;max-width:700px;margin:0 auto}
+.pack-badge{display:inline-block;background:rgba(20,184,166,.15);border:1px solid rgba(20,184,166,.35);color:var(--accent-lt);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-size:clamp(28px,5vw,46px);font-weight:900;line-height:1.1;margin-bottom:14px;letter-spacing:-.5px}
+.hero h1 em{color:var(--accent-lt);font-style:normal}
+.hero p{font-size:16px;color:var(--muted);max-width:540px;margin:0 auto;line-height:1.7}
+.tools-pill{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:rgba(20,184,166,.1);border:1px solid var(--brd);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:600;color:var(--accent-lt)}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(480px,1fr));gap:20px;padding:0 24px 80px;max-width:1100px;margin:0 auto}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--brd);border-radius:16px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:rgba(20,184,166,.5);box-shadow:0 4px 32px rgba(20,184,166,.12)}
+.card-header{display:flex;align-items:center;gap:14px;padding:20px 22px 14px}
+.num{font-family:var(--mono);font-size:26px;font-weight:900;color:rgba(20,184,166,.3);line-height:1;letter-spacing:-1px;flex-shrink:0}
+.card-header h3{font-size:15px;font-weight:700;color:var(--txt);line-height:1.3}
+.prompt-wrap{padding:0 22px 20px}
+.prompt-box{background:#020c0c;border:1px solid rgba(20,184,166,.2);border-radius:10px;padding:16px;font-family:var(--mono);font-size:12.5px;line-height:1.75;color:#c0f2ec;white-space:pre-wrap;word-break:break-word;margin-bottom:12px;max-height:220px;overflow-y:auto}
+.prompt-box::-webkit-scrollbar{width:4px}
+.prompt-box::-webkit-scrollbar-thumb{background:rgba(20,184,166,.3);border-radius:4px}
+.copy-btn{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;background:rgba(20,184,166,.18);border:1px solid rgba(20,184,166,.35);border-radius:8px;color:var(--accent-lt);font-size:12px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s}
+.copy-btn:hover{background:rgba(20,184,166,.32);border-color:var(--accent)}
+.copy-btn.copied{background:rgba(74,222,128,.15);border-color:rgba(74,222,128,.4);color:#4ade80}
+
+/* FOOTER */
+.foot{text-align:center;padding:40px 24px;border-top:1px solid var(--brd);font-size:13px;color:var(--muted)}
+.foot a{color:var(--accent-lt)}
+
+@media(max-width:600px){.grid{grid-template-columns:1fr;padding:0 16px 60px}.topnav{padding:14px 16px}.hero{padding:48px 16px 36px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-logo">DESAF<span>-IA</span></div>
+  <a href="./index.html" class="back-link">← Volver al Playbook</a>
+</nav>
+
+<div class="hero">
+  <div class="pack-badge">Pack 9 · Herramienta: Claude · ChatGPT · Notion</div>
+  <h1>10 Prompts para<br><em>30 Días de Contenido en 1 Hora</em></h1>
+  <p>Un bloque de trabajo para tener todo el mes planificado. Calendario, hooks, captions, carruseles y Reels listos para publicar.</p>
+  <div class="tools-pill">📅 Claude · ChatGPT · Canva · CapCut</div>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="card-header"><span class="num">01</span><h3>Calendario de contenido mensual completo</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p1">Creá un calendario de contenido para el mes de [MES] para [NOMBRE/MARCA] en el nicho de [NICHO]. Necesito 20 publicaciones en 4 semanas. Distribución semanal: 2 Reels, 2 carruseles, 1 post estático, y 5 Stories. Para cada publicación incluí: día, formato, tema, objetivo (educar/entretener/vender), y gancho de apertura en 1 frase. Los lunes y jueves son los días de mayor alcance (priorizá contenido de valor esos días).</div>
+      <button class="copy-btn" id="btn1" onclick="cp('p1','btn1')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">02</span><h3>10 hooks de apertura para cualquier nicho</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p2">Generá 10 hooks de apertura distintos para usar en posts y Reels sobre [NICHO]. Variedad obligatoria: 2 de pregunta directa que genera identificación, 2 de dato o estadística sorprendente, 2 de afirmación contraintuitiva, 2 de 'el error que todos cometen', 2 de historia personal breve. Cada hook: máximo 10 palabras. Que paren el scroll inmediatamente. Sin 'Hola soy X' ni emojis al inicio.</div>
+      <button class="copy-btn" id="btn2" onclick="cp('p2','btn2')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">03</span><h3>Estructura de carrusel de 7 slides para Instagram</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p3">Diseñá el contenido completo de un carrusel de Instagram de 7 slides sobre [TEMA]. Slide 1 (gancho): pregunta o afirmación que genere identidad o curiosidad. Slides 2-6: 1 idea por slide, máximo 3 líneas de texto, progresión lógica del tema. Slide 7 (CTA): síntesis + acción a tomar. Para cada slide: texto principal, texto del pie (si aplica), y descripción de qué imagen o diseño iría de fondo. Al final: caption del post completo con hashtags.</div>
+      <button class="copy-btn" id="btn3" onclick="cp('p3','btn3')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">04</span><h3>5 ideas de Reels educativos para la semana</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p4">Generá 5 ideas de Reels educativos para esta semana sobre [NICHO/TEMA]. Para cada Reel: título del video, gancho de apertura (3-5 palabras), los 3 puntos que cubre, duración estimada (15/30/60 segundos), formato sugerido (texto en pantalla / cara a cámara / screenshare / demo), y CTA al final. Las 5 ideas deben cubrir: una para el lunes de alto valor, dos para mitad de semana, una de entretenimiento y una de venta suave el viernes.</div>
+      <button class="copy-btn" id="btn4" onclick="cp('p4','btn4')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">05</span><h3>Caption largo para post reflexivo que genera guardados</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p5">Escribí un caption de Instagram de 200-300 palabras sobre [TEMA/REFLEXIÓN] que genere guardados y compartidos. El caption debe: empezar con una historia o situación concreta (no con la reflexión directa), desarrollar la idea en párrafos cortos con espacio entre ellos, tener al menos una frase que el lector quiera copiar y guardar, y terminar con una pregunta abierta para comentarios. Incluí los mejores 5 hashtags para este contenido.</div>
+      <button class="copy-btn" id="btn5" onclick="cp('p5','btn5')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">06</span><h3>Caption corto de venta (máximo 80 palabras)</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p6">Escribí 3 variantes de caption corto (máximo 80 palabras cada uno) para vender [PRODUCTO] a [AUDIENCIA]. Variante 1: enfocado en el resultado/transformación. Variante 2: enfocado en el dolor que resuelve. Variante 3: enfocado en para quién es (incluir/excluir). Todos con CTA al final (link en bio / escribirme 'X' por DM). Sin 'no te pierdas esta oportunidad' ni 'por tiempo limitado' sin una razón real.</div>
+      <button class="copy-btn" id="btn6" onclick="cp('p6','btn6')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">07</span><h3>Serie de 5 Stories de engagement para un día</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p7">Diseñá una secuencia de 5 Stories para publicar en un mismo día sobre [TEMA]. Objetivo: generar respuestas, encuestas y DMs. Story 1: Encuesta (sí/no sobre tema polémico del nicho). Story 2: Pregunta abierta ('¿cuál es tu mayor problema con X?'). Story 3: Contenido de valor rápido (tip en 15 segundos). Story 4: Quiz o 'adivina el dato'. Story 5: CTA a DM ('Si respondiste X a la encuesta, escribime'). Para cada story: texto, sticker a usar, y objetivo.</div>
+      <button class="copy-btn" id="btn7" onclick="cp('p7','btn7')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">08</span><h3>Post de 'pregunta al experto' que genera comentarios</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p8">Escribí un post de Instagram tipo 'pregunta al experto' donde respondo [PREGUNTA FRECUENTE DE TU NICHO]. Formato: pregunta en el primer párrafo (textual, como si la preguntara alguien real), mi respuesta desarrollada (3-4 párrafos), y al final: '¿Tenés alguna pregunta sobre [TEMA]? Comentala abajo y la respondo.' Incluí 1 aclaración o matiz que la gente generalmente no considera. Que genere al menos 10 comentarios reales.</div>
+      <button class="copy-btn" id="btn8" onclick="cp('p8','btn8')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">09</span><h3>Repropósito de 1 contenido en 5 formatos distintos</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p9">Tengo este contenido: [PEGAR TEXTO/IDEA ORIGINAL]. Convertilo en 5 formatos distintos para publicar la misma semana: 1) Reel de 30 segundos (guión con gancho, desarrollo, CTA), 2) Carrusel de 5 slides (título + contenido de cada slide), 3) Caption de post largo (200 palabras), 4) Serie de 3 Stories con encuesta o interacción, 5) Newsletter corto para email (150 palabras + asunto del email). La idea principal es la misma, el formato y ángulo varía.</div>
+      <button class="copy-btn" id="btn9" onclick="cp('p9','btn9')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">10</span><h3>Resumen mensual de logros para publicar en redes</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p10">Ayudame a escribir el post de resumen del mes [MES] para publicar en redes. Mis logros del mes: [LISTAR LOS LOGROS]. El post debe: mostrar los números sin presumir, compartir 1 aprendizaje inesperado del mes, mencionar algo que no salió como esperaba (honestidad que genera conexión), y terminar con lo que viene el próximo mes. Tono: reflexivo y auténtico, no hype de 'aplasté mis metas'. 150-200 palabras.</div>
+      <button class="copy-btn" id="btn10" onclick="cp('p10','btn10')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <p>DESAF-IA · Prompts Pro Pack 9 · <a href="./index.html">Volver al Playbook</a></p>
+</div>
+
+<script>async function cp(id,btnId){const text=document.getElementById(id).innerText;const btn=document.getElementById(btnId);try{await navigator.clipboard.writeText(text);}catch{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);}btn.textContent='✓ ¡Copiado!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='📋 Copiar prompt';btn.classList.remove('copied');},2200);}</script>
+</body>
+</html>

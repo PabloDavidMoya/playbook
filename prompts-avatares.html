@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>10 Prompts — Avatares Hiperealistas · DESAF-IA</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%238B5CF6'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='17' fill='white'>D</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#08050f;--card:#110d1e;--brd:rgba(139,92,246,.2);--accent:#8B5CF6;--accent-lt:#C4B5FD;--txt:#F2F0FF;--muted:#9090b0;--mono:'JetBrains Mono',monospace}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+/* TOP NAV */
+.topnav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;border-bottom:1px solid var(--brd);position:sticky;top:0;background:rgba(8,5,15,.9);backdrop-filter:blur(12px);z-index:100}
+.topnav-logo{font-weight:900;font-size:17px;color:#fff;letter-spacing:-.3px}
+.topnav-logo span{color:var(--accent-lt)}
+.back-link{font-size:13px;font-weight:600;color:var(--muted);border:1px solid var(--brd);padding:6px 14px;border-radius:8px;transition:all .2s}
+.back-link:hover{color:var(--accent-lt);border-color:var(--accent)}
+
+/* HERO */
+.hero{text-align:center;padding:64px 24px 48px;max-width:700px;margin:0 auto}
+.pack-badge{display:inline-block;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.35);color:var(--accent-lt);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-size:clamp(28px,5vw,46px);font-weight:900;line-height:1.1;margin-bottom:14px;letter-spacing:-.5px}
+.hero h1 em{color:var(--accent-lt);font-style:normal}
+.hero p{font-size:16px;color:var(--muted);max-width:540px;margin:0 auto;line-height:1.7}
+.tools-pill{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:rgba(139,92,246,.1);border:1px solid var(--brd);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:600;color:var(--accent-lt)}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(480px,1fr));gap:20px;padding:0 24px 80px;max-width:1100px;margin:0 auto}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--brd);border-radius:16px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:rgba(139,92,246,.5);box-shadow:0 4px 32px rgba(139,92,246,.12)}
+.card-header{display:flex;align-items:center;gap:14px;padding:20px 22px 14px}
+.num{font-family:var(--mono);font-size:26px;font-weight:900;color:rgba(139,92,246,.3);line-height:1;letter-spacing:-1px;flex-shrink:0}
+.card-header h3{font-size:15px;font-weight:700;color:var(--txt);line-height:1.3}
+.prompt-wrap{padding:0 22px 20px}
+.prompt-box{background:#07040f;border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:16px;font-family:var(--mono);font-size:12.5px;line-height:1.75;color:#e2d8ff;white-space:pre-wrap;word-break:break-word;margin-bottom:12px;max-height:220px;overflow-y:auto}
+.prompt-box::-webkit-scrollbar{width:4px}
+.prompt-box::-webkit-scrollbar-thumb{background:rgba(139,92,246,.3);border-radius:4px}
+.copy-btn{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;background:rgba(139,92,246,.18);border:1px solid rgba(139,92,246,.35);border-radius:8px;color:var(--accent-lt);font-size:12px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s}
+.copy-btn:hover{background:rgba(139,92,246,.32);border-color:var(--accent)}
+.copy-btn.copied{background:rgba(74,222,128,.15);border-color:rgba(74,222,128,.4);color:#4ade80}
+
+/* FOOTER */
+.foot{text-align:center;padding:40px 24px;border-top:1px solid var(--brd);font-size:13px;color:var(--muted)}
+.foot a{color:var(--accent-lt)}
+
+@media(max-width:600px){.grid{grid-template-columns:1fr;padding:0 16px 60px}.topnav{padding:14px 16px}.hero{padding:48px 16px 36px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-logo">DESAF<span>-IA</span></div>
+  <a href="./index.html" class="back-link">← Volver al Playbook</a>
+</nav>
+
+<div class="hero">
+  <div class="pack-badge">Pack 1 · Prompts Pro</div>
+  <h1>10 Prompts para<br><em>Avatares Hiperealistas</em></h1>
+  <p>Generá tu imagen de marca profesional con IA sin fotógrafo ni sesión de fotos. Listos para Midjourney v6, DALL-E 3 e Ideogram.</p>
+  <div class="tools-pill">⚡ Midjourney · DALL-E 3 · Ideogram</div>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="card-header"><span class="num">01</span><h3>Avatar profesional para LinkedIn y perfil corporativo</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p1">Photorealistic professional headshot of a [hombre/mujer] Latin professional, 30–38 years old, wearing a dark navy modern suit, subtle confident smile, direct eye contact with camera, soft studio bokeh background neutral grey, Rembrandt lighting, Canon 85mm f/1.4 look, ultra-sharp skin texture, 4K -- ar 1:1 --style raw --v 6.1</div>
+      <button class="copy-btn" id="btn1" onclick="cp('p1','btn1')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">02</span><h3>Avatar emprendedor digital con laptop y ambiente moderno</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p2">Photorealistic candid portrait, [hombre/mujer] digital entrepreneur, 28–35 years old, casual smart outfit (white shirt open collar), working at a sleek minimalist desk with MacBook and specialty coffee, large window with city view and soft natural light, shallow depth of field, warm lifestyle magazine aesthetic -- ar 1:1 --style raw --v 6.1</div>
+      <button class="copy-btn" id="btn2" onclick="cp('p2','btn2')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">03</span><h3>Avatar de coach o mentor con fondo inspirador minimalista</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p3">Photorealistic portrait, [hombre/mujer] life coach or mentor, 32–45 years old, warm and confident smile, neutral tones outfit (beige, cream, soft white), bright airy background with blurred indoor plants and white walls, approachable and trustworthy expression, golden hour window light -- ar 1:1 --style raw --v 6.1</div>
+      <button class="copy-btn" id="btn3" onclick="cp('p3','btn3')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">04</span><h3>Avatar con iluminación cinematográfica de alto impacto</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p4">Photorealistic dramatic cinematic portrait, [hombre/mujer], strong Rembrandt lighting from left side with warm golden rim light from right, deep shadows, serious and powerful expression, dark moody background, film still aesthetic, high contrast, 8K ultra detail -- ar 1:1 --style raw --v 6.1</div>
+      <button class="copy-btn" id="btn4" onclick="cp('p4','btn4')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">05</span><h3>Avatar para nicho de fitness, salud o bienestar</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p5">Photorealistic portrait, [hombre/mujer] fitness coach or wellness professional, athletic fit build, wearing high-quality sport attire in [color de marca], energetic and confident expression, outdoor gym or park bokeh background, dynamic natural sunlight, vibrant and healthy look -- ar 1:1 --style raw --v 6.1</div>
+      <button class="copy-btn" id="btn5" onclick="cp('p5','btn5')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">06</span><h3>Avatar editorial de moda para marca personal de impacto</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p6">Photorealistic high fashion editorial portrait, [hombre/mujer], wearing premium designer outfit with [color dominante de tu marca], clean minimalist studio white background, editorial magazine lighting with dramatic shadows, fierce and confident expression, Vogue aesthetic -- ar 4:5 --style raw --v 6.1</div>
+      <button class="copy-btn" id="btn6" onclick="cp('p6','btn6')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">07</span><h3>Avatar casual de creador de contenido en exteriores</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p7">Photorealistic candid lifestyle portrait, [hombre/mujer] content creator, 25–35 years old, casual trendy outfit (oversized hoodie, jeans, sneakers), holding phone or small camera, urban street or park background with golden hour bokeh, authentic spontaneous expression, social media lifestyle aesthetic -- ar 1:1 --v 6.1</div>
+      <button class="copy-btn" id="btn7" onclick="cp('p7','btn7')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">08</span><h3>Avatar CEO / fundador millennial en oficina premium</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p8">Photorealistic executive portrait, [hombre/mujer] CEO or founder, 32–42 years old, modern business casual attire (blazer no tie), standing with arms crossed or relaxed in a sleek glass-wall modern office with city panorama, window light creating natural shadows, confident authoritative yet approachable expression -- ar 1:1 --style raw --v 6.1</div>
+      <button class="copy-btn" id="btn8" onclick="cp('p8','btn8')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">09</span><h3>Avatar con fondo artístico abstracto en colores de marca</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p9">Photorealistic portrait of [hombre/mujer], clean professional outfit, background replaced with abstract geometric art in [tus colores de marca: ej. púrpura, dorado y negro], soft bokeh blend between portrait and background, pop art meets realism aesthetic, vibrant unique personal brand feel -- ar 1:1 --v 6.1</div>
+      <button class="copy-btn" id="btn9" onclick="cp('p9','btn9')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="num">10</span><h3>Avatar con elemento de marca personal visible</h3></div>
+    <div class="prompt-wrap">
+      <div class="prompt-box" id="p10">Photorealistic lifestyle brand portrait, [hombre/mujer] professional, naturally holding or interacting with personal brand prop: [ej. cámara de fotos / libro / micrófono / laptop / planta / café], casual but polished outfit, soft natural light, authentic engaged expression, shallow depth of field, story-driven brand photography -- ar 1:1 --style raw --v 6.1</div>
+      <button class="copy-btn" id="btn10" onclick="cp('p10','btn10')">📋 Copiar prompt</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <p>DESAF-IA · Prompts Pro Pack 1 · <a href="./index.html">Volver al Playbook</a></p>
+</div>
+
+<script>
+async function cp(id, btnId) {
+  const text = document.getElementById(id).innerText;
+  const btn = document.getElementById(btnId);
+  try {
+    await navigator.clipboard.writeText(text);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('copied');
+  } catch {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('copied');
+  }
+  setTimeout(() => { btn.textContent = '📋 Copiar prompt'; btn.classList.remove('copied'); }, 2200);
+}
+</script>
+</body>
+</html>
