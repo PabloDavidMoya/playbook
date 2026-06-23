@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Lanza tu Primer E-Book: De 0 a Publicado — DESAF-IA</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23F59E0B'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='17' fill='white'>D</text></svg>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0A0E1A;--side:#0D1117;--card:#161B22;--brd:#21262D;
+  --amber:#F59E0B;--amberh:#D97706;--green:#10B981;
+  --txt:#E6EDF3;--muted:#7D8590;--r:12px;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);display:flex;min-height:100vh;font-size:15px;line-height:1.7}
+
+/* SIDEBAR */
+.sidebar{width:300px;min-width:300px;background:var(--side);border-right:1px solid var(--brd);
+  position:fixed;top:0;left:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column;z-index:100}
+.sid-head{padding:22px 18px 14px;border-bottom:1px solid var(--brd);position:sticky;top:0;background:var(--side);z-index:10}
+.brand{font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px}
+.brand span{color:var(--amber)}
+.course-label{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+.prog-wrap{margin-top:14px}
+.prog-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:6px}
+.prog-bar{background:var(--brd);border-radius:100px;height:5px;overflow:hidden}
+.prog-fill{background:linear-gradient(90deg,var(--amber),#FCD34D);height:100%;border-radius:100px;transition:width .5s ease;width:0%}
+.mod-list{list-style:none;padding:10px}
+.module-item{display:flex;align-items:center;gap:10px;padding:10px 8px;border-radius:10px;
+  cursor:pointer;transition:all .2s;margin-bottom:2px;border:1px solid transparent}
+.module-item:hover{background:rgba(255,255,255,.04)}
+.module-item.active{background:rgba(245,158,11,.12);border-color:rgba(245,158,11,.3)}
+.mod-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.mod-info{flex:1;min-width:0}
+.mod-num{display:block;font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.mod-name{display:block;font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.check-icon{font-size:12px;color:var(--green);opacity:0;transition:opacity .3s;flex-shrink:0}
+
+/* MAIN */
+.main{margin-left:300px;flex:1;min-height:100vh;display:flex;flex-direction:column}
+.welcome{display:flex;align-items:center;justify-content:center;flex:1;padding:40px;text-align:center}
+.welcome-inner{max-width:520px}
+.welcome-inner h1{font-size:30px;font-weight:800;background:linear-gradient(135deg,#fff,#FCD34D);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:20px 0 12px}
+.welcome-inner p{color:var(--muted);font-size:16px;margin-bottom:28px;line-height:1.6}
+.btn-start{background:var(--amber);color:#000;border:none;padding:13px 30px;border-radius:10px;
+  font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-start:hover{background:var(--amberh);transform:translateY(-1px)}
+
+/* SECTIONS */
+.module-section{padding:36px 56px 60px;max-width:840px;margin:0 auto;width:100%}
+.mod-hero{display:flex;align-items:flex-start;gap:18px;padding:24px;
+  background:var(--card);border-radius:var(--r);border-left:4px solid;margin-bottom:36px}
+.hero-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.hero-badge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:10px;
+  font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.mod-hero h1{font-size:24px;font-weight:800;line-height:1.3;margin-bottom:5px}
+.hero-sub{color:var(--muted);font-size:14px}
+
+/* CONTENT */
+.mod-body h2{font-size:19px;font-weight:700;color:#fff;margin:32px 0 12px;
+  padding-bottom:10px;border-bottom:1px solid var(--brd)}
+.mod-body h3{font-size:16px;font-weight:600;color:#E6EDF3;margin:22px 0 8px}
+.mod-body p{color:#CDD9E5;margin-bottom:14px;line-height:1.75}
+.mod-body ul,.mod-body ol{color:#CDD9E5;padding-left:22px;margin-bottom:14px}
+.mod-body li{margin-bottom:7px;line-height:1.7}
+.mod-body strong{color:#fff;font-weight:600}
+.mod-body em{color:#FCD34D}
+
+.tip-box{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);
+  border-left:3px solid var(--amber);border-radius:8px;padding:14px 16px;margin:18px 0;font-size:14px;color:#FDE68A}
+.example-box{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);
+  border-left:3px solid var(--green);border-radius:8px;padding:14px 16px;margin:18px 0;font-size:14px;color:#6EE7B7}
+.warning-box{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.25);
+  border-left:3px solid #FBBF24;border-radius:8px;padding:14px 16px;margin:18px 0;font-size:14px;color:#FDE68A}
+.prompt-box{background:#0D1117;border:1px solid rgba(245,158,11,.3);border-radius:8px;
+  padding:18px;margin:18px 0;font-family:'Courier New',monospace;font-size:13px;
+  color:#FCD34D;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.prompt-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;
+  color:var(--amber);margin-bottom:8px;display:block}
+
+.mod-body table{width:100%;border-collapse:collapse;margin:18px 0;border-radius:8px;overflow:hidden}
+.mod-body th{background:rgba(245,158,11,.15);color:#FCD34D;padding:11px 14px;text-align:left;font-size:13px;font-weight:600}
+.mod-body td{padding:11px 14px;border-bottom:1px solid var(--brd);color:#CDD9E5;font-size:14px}
+.mod-body tr:last-child td{border-bottom:none}
+.mod-body tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+
+.mod-body code{background:var(--card);border:1px solid var(--brd);padding:2px 6px;
+  border-radius:4px;font-size:13px;color:#F97316;font-family:'Courier New',monospace}
+
+/* ACTIONS */
+.mod-actions{display:flex;align-items:center;gap:10px;margin-top:44px;
+  padding-top:22px;border-top:1px solid var(--brd);flex-wrap:wrap}
+.btn-nav{padding:10px 18px;border-radius:8px;font-size:13px;font-weight:500;
+  cursor:pointer;font-family:inherit;transition:all .2s;display:flex;align-items:center;gap:7px;border:none}
+.btn-prev{background:var(--card);border:1px solid var(--brd)!important;color:var(--txt)}
+.btn-prev:hover{border-color:var(--amber)!important;color:var(--amber)}
+.btn-next{background:var(--amber);color:#000;font-weight:700}
+.btn-next:hover{background:var(--amberh)}
+.btn-complete{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);
+  color:var(--green);padding:10px 18px;border-radius:8px;font-size:13px;font-weight:500;
+  cursor:pointer;font-family:inherit;transition:all .2s;display:flex;align-items:center;gap:7px}
+.btn-complete:hover,.btn-complete.done{background:var(--green);border-color:var(--green);color:#fff}
+.finish-msg{color:#FBBF24;font-weight:600;font-size:15px;display:flex;align-items:center;gap:8px}
+
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--brd);border-radius:100px}
+
+@media(max-width:768px){
+  .sidebar{width:100%;height:auto;position:relative;min-height:unset}
+  .mod-list{display:none}
+  .main{margin-left:0}
+  .module-section{padding:24px 20px 40px}
+}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sid-head">
+    <img src="logoazul.png" alt="DESAF-IA" style="height:42px;margin-bottom:10px;display:block;object-fit:contain;">
+    <div class="brand">DESAF<span>-IA</span></div>
+    <div class="course-label">Lanza tu Primer E-Book</div>
+    <div class="prog-wrap">
+      <div class="prog-meta"><span>Progreso</span><span id="prog-txt">0 / 8 módulos</span></div>
+      <div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div>
+    </div>
+  </div>
+  <ul class="mod-list">
+    <li class="module-item" id="item-1" onclick="showModule(1)">
+      <div class="mod-icon" style="background:#F59E0B22;color:#F59E0B"><i class="fas fa-lightbulb"></i></div>
+      <div class="mod-info">
+        <span class="mod-num">Módulo 1</span>
+        <span class="mod-name">Por qué el ebook es tu mejor primer producto</span>
+      </div>
+      <span class="check-icon" id="chk-1">✓</span>
+    </li>
+    <li class="module-item" id="item-2" onclick="showModule(2)">
+      <div class="mod-icon" style="background:#10B98122;color:#10B981"><i class="fas fa-crosshairs"></i></div>
+      <div class="mod-info">
+        <span class="mod-num">Módulo 2</span>
+        <span class="mod-name">Elige tu nicho y valida la idea en 24 hs</span>
+      </div>
+      <span class="check-icon" id="chk-2">✓</span>
+    </li>
+    <li class="module-item" id="item-3" onclick="showModule(3)">
+      <div class="mod-icon" style="background:#8B5CF622;color:#8B5CF6"><i class="fas fa-robot"></i></div>
+      <div class="mod-info">
+        <span class="mod-num">Módulo 3</span>
+        <span class="mod-name">Crea tu ebook con IA paso a paso</span>
+      </div>
+      <span class="check-icon" id="chk-3">✓</span>
+    </li>
+    <li class="module-item" id="item-4" onclick="showModule(4)">
+      <div class="mod-icon" style="background:#EC489922;color:#EC4899"><i class="fas fa-palette"></i></div>
+      <div class="mod-info">
+        <span class="mod-num">Módulo 4</span>
+        <span class="mod-name">Diseña la portada y el interior con Canva</span>
+      </div>
+      <span class="check-icon" id="chk-4">✓</span>
+    </li>
+    <li class="module-item" id="item-5" onclick="showModule(5)">
+      <div class="mod-icon" style="background:#3B82F622;color:#3B82F6"><i class="fas fa-store"></i></div>
+      <div class="mod-info">
+        <span class="mod-num">Módulo 5</span>
+        <span class="mod-name">Dónde publicarlo y a qué precio</span>
+      </div>
+      <span class="check-icon" id="chk-5">✓</span>
+    </li>
+    <li class="module-item" id="item-6" onclick="showModule(6)">
+      <div class="mod-icon" style="background:#F9731622;color:#F97316"><i class="fas fa-photo-film"></i></div>
+      <div class="mod-info">
+        <span class="mod-num">Módulo 6</span>
+        <span class="mod-name">Creativos para Instagram con IA</span>
+      </div>
+      <span class="check-icon" id="chk-6">✓</span>
+    </li>
+    <li class="module-item" id="item-7" onclick="showModule(7)">
+      <div class="mod-icon" style="background:#14B8A622;color:#14B8A6"><i class="fas fa-rocket"></i></div>
+      <div class="mod-info">
+        <span class="mod-num">Módulo 7</span>
+        <span class="mod-name">Plan de lanzamiento — primera venta en 7 días</span>
+      </div>
+      <span class="check-icon" id="chk-7">✓</span>
+    </li>
+    <li class="module-item" id="item-8" onclick="showModule(8)">
+      <div class="mod-icon" style="background:#FCD34D22;color:#FCD34D"><i class="fas fa-trophy"></i></div>
+      <div class="mod-info">
+        <span class="mod-num">BONUS</span>
+        <span class="mod-name">Escalá con afiliados y automatizá ventas</span>
+      </div>
+      <span class="check-icon" id="chk-8">✓</span>
+    </li>
+  </ul>
+</aside>
+
+<main class="main">
+  <div class="welcome" id="welcome">
+    <div class="welcome-inner">
+      <span style="font-size:60px">📖</span>
+      <h1>Lanza tu Primer E-Book: De 0 a Publicado</h1>
+      <p>Aprende a crear, diseñar y vender tu primer producto digital usando IA. Sin ser diseñador ni escritor. Con herramientas reales, prompts listos y un plan de lanzamiento de 7 días.</p>
+      <button class="btn-start" onclick="showModule(1)"><i class="fas fa-play"></i> Comenzar curso</button>
+    </div>
+  </div>
+
+  <div class="module-section" id="module-1" style="display:none">
+    <div class="mod-hero" style="border-color:#F59E0B">
+      <div class="hero-icon" style="background:#F59E0B22;color:#F59E0B"><i class="fas fa-lightbulb"></i></div>
+      <div>
+        <span class="hero-badge" style="background:#F59E0B22;color:#F59E0B">Módulo 1 de 8</span>
+        <h1>Por qué el ebook es tu mejor primer producto digital</h1>
+        <p class="hero-sub">El modelo de negocio que nadie te explica completo</p>
+      </div>
+    </div>
+    <div class="mod-body" id="body-1"></div>
+    <div class="mod-actions">
+      <button class="btn-complete" id="btn-1" onclick="completeModule(1)"><i class="fas fa-check"></i> Marcar como completado</button>
+      <button class="btn-nav btn-next" onclick="showModule(2)"><i class="fas fa-arrow-right"></i> Siguiente módulo</button>
+    </div>
+  </div>
+
+  <div class="module-section" id="module-2" style="display:none">
+    <div class="mod-hero" style="border-color:#10B981">
+      <div class="hero-icon" style="background:#10B98122;color:#10B981"><i class="fas fa-crosshairs"></i></div>
+      <div>
+        <span class="hero-badge" style="background:#10B98122;color:#10B981">Módulo 2 de 8</span>
+        <h1>Elige tu nicho y valida la idea en 24 horas</h1>
+        <p class="hero-sub">Sin desperdiciar semanas escribiendo algo que nadie va a comprar</p>
+      </div>
+    </div>
+    <div class="mod-body" id="body-2"></div>
+    <div class="mod-actions">
+      <button class="btn-nav btn-prev" onclick="showModule(1)"><i class="fas fa-arrow-left"></i> Anterior</button>
+      <button class="btn-complete" id="btn-2" onclick="completeModule(2)"><i class="fas fa-check"></i> Marcar como completado</button>
+      <button class="btn-nav btn-next" onclick="showModule(3)"><i class="fas fa-arrow-right"></i> Siguiente módulo</button>
+    </div>
+  </div>
+
+  <div class="module-section" id="module-3" style="display:none">
+    <div class="mod-hero" style="border-color:#8B5CF6">
+      <div class="hero-icon" style="background:#8B5CF622;color:#8B5CF6"><i class="fas fa-robot"></i></div>
+      <div>
+        <span class="hero-badge" style="background:#8B5CF622;color:#8B5CF6">Módulo 3 de 8</span>
+        <h1>Crea tu ebook con IA paso a paso</h1>
+        <p class="hero-sub">Claude + ChatGPT para escribir en horas, no semanas</p>
+      </div>
+    </div>
+    <div class="mod-body" id="body-3"></div>
+    <div class="mod-actions">
+      <button class="btn-nav btn-prev" onclick="showModule(2)"><i class="fas fa-arrow-left"></i> Anterior</button>
+      <button class="btn-complete" id="btn-3" onclick="completeModule(3)"><i class="fas fa-check"></i> Marcar como completado</button>
+      <button class="btn-nav btn-next" onclick="showModule(4)"><i class="fas fa-arrow-right"></i> Siguiente módulo</button>
+    </div>
+  </div>
+
+  <div class="module-section" id="module-4" style="display:none">
+    <div class="mod-hero" style="border-color:#EC4899">
+      <div class="hero-icon" style="background:#EC489922;color:#EC4899"><i class="fas fa-palette"></i></div>
+      <div>
+        <span class="hero-badge" style="background:#EC489922;color:#EC4899">Módulo 4 de 8</span>
+        <h1>Diseña la portada y el interior con Canva</h1>
+        <p class="hero-sub">Que se vea profesional sin saber de diseño</p>
+      </div>
+    </div>
+    <div class="mod-body" id="body-4"></div>
+    <div class="mod-actions">
+      <button class="btn-nav btn-prev" onclick="showModule(3)"><i class="fas fa-arrow-left"></i> Anterior</button>
+      <button class="btn-complete" id="btn-4" onclick="completeModule(4)"><i class="fas fa-check"></i> Marcar como completado</button>
+      <button class="btn-nav btn-next" onclick="showModule(5)"><i class="fas fa-arrow-right"></i> Siguiente módulo</button>
+    </div>
+  </div>
+
+  <div class="module-section" id="module-5" style="display:none">
+    <div class="mod-hero" style="border-color:#3B82F6">
+      <div class="hero-icon" style="background:#3B82F622;color:#3B82F6"><i class="fas fa-store"></i></div>
+      <div>
+        <span class="hero-badge" style="background:#3B82F622;color:#3B82F6">Módulo 5 de 8</span>
+        <h1>Dónde publicarlo y a qué precio</h1>
+        <p class="hero-sub">Hotmart vs Gumroad vs Amazon KDP — la comparativa real</p>
+      </div>
+    </div>
+    <div class="mod-body" id="body-5"></div>
+    <div class="mod-actions">
+      <button class="btn-nav btn-prev" onclick="showModule(4)"><i class="fas fa-arrow-left"></i> Anterior</button>
+      <button class="btn-complete" id="btn-5" onclick="completeModule(5)"><i class="fas fa-check"></i> Marcar como completado</button>
+      <button class="btn-nav btn-next" onclick="showModule(6)"><i class="fas fa-arrow-right"></i> Siguiente módulo</button>
+    </div>
+  </div>
+
+  <div class="module-section" id="module-6" style="display:none">
+    <div class="mod-hero" style="border-color:#F97316">
+      <div class="hero-icon" style="background:#F9731622;color:#F97316"><i class="fas fa-photo-film"></i></div>
+      <div>
+        <span class="hero-badge" style="background:#F9731622;color:#F97316">Módulo 6 de 8</span>
+        <h1>Creativos para Instagram con IA</h1>
+        <p class="hero-sub">ChatGPT + Midjourney + animación para vender en Reels</p>
+      </div>
+    </div>
+    <div class="mod-body" id="body-6"></div>
+    <div class="mod-actions">
+      <button class="btn-nav btn-prev" onclick="showModule(5)"><i class="fas fa-arrow-left"></i> Anterior</button>
+      <button class="btn-complete" id="btn-6" onclick="completeModule(6)"><i class="fas fa-check"></i> Marcar como completado</button>
+      <button class="btn-nav btn-next" onclick="showModule(7)"><i class="fas fa-arrow-right"></i> Siguiente módulo</button>
+    </div>
+  </div>
+
+  <div class="module-section" id="module-7" style="display:none">
+    <div class="mod-hero" style="border-color:#14B8A6">
+      <div class="hero-icon" style="background:#14B8A622;color:#14B8A6"><i class="fas fa-rocket"></i></div>
+      <div>
+        <span class="hero-badge" style="background:#14B8A622;color:#14B8A6">Módulo 7 de 8</span>
+        <h1>Plan de lanzamiento — tu primera venta en 7 días</h1>
+        <p class="hero-sub">El plan de acción día a día para conseguir ventas reales</p>
+      </div>
+    </div>
+    <div class="mod-body" id="body-7"></div>
+    <div class="mod-actions">
+      <button class="btn-nav btn-prev" onclick="showModule(6)"><i class="fas fa-arrow-left"></i> Anterior</button>
+      <button class="btn-complete" id="btn-7" onclick="completeModule(7)"><i class="fas fa-check"></i> Marcar como completado</button>
+      <button class="btn-nav btn-next" onclick="showModule(8)"><i class="fas fa-arrow-right"></i> Siguiente módulo</button>
+    </div>
+  </div>
+
+  <div class="module-section" id="module-8" style="display:none">
+    <div class="mod-hero" style="border-color:#FCD34D">
+      <div class="hero-icon" style="background:#FCD34D22;color:#FCD34D"><i class="fas fa-trophy"></i></div>
+      <div>
+        <span class="hero-badge" style="background:#FCD34D22;color:#FCD34D">BONUS</span>
+        <h1>Escalá con afiliados y automatizá las ventas</h1>
+        <p class="hero-sub">Que otros vendan por vos mientras dormís</p>
+      </div>
+    </div>
+    <div class="mod-body" id="body-8"></div>
+    <div class="mod-actions">
+      <button class="btn-nav btn-prev" onclick="showModule(7)"><i class="fas fa-arrow-left"></i> Anterior</button>
+      <button class="btn-complete" id="btn-8" onclick="completeModule(8)"><i class="fas fa-check"></i> Marcar como completado</button>
+      <div class="finish-msg"><i class="fas fa-trophy"></i> ¡Completaste el curso! Tu primer ebook ya está listo para vender 🚀</div>
+    </div>
+  </div>
+</main>
+
+<script>
+const MOD = {
+"1": `<h2>El modelo de negocio que nadie te explica completo</h2>
+
+<p>Antes de escribir una sola palabra, necesitás entender <strong>por qué el ebook es la puerta de entrada perfecta al mundo de los productos digitales</strong>. No es el único modelo, pero sí es el más accesible, el más rápido de lanzar y el que menor fricción tiene para un principiante.</p>
+
+<h3>¿Qué hace especial a un ebook como negocio?</h3>
+<p>Un ebook tiene tres características que ningún producto físico tiene:</p>
+<ul>
+  <li><strong>Se crea una vez y se vende infinitas veces</strong> — no hay stock, no hay envíos, no hay costos variables por cada venta.</li>
+  <li><strong>El costo de producción es casi cero</strong> — solo requiere tu tiempo (y hoy con IA, ese tiempo se redujo a horas, no semanas).</li>
+  <li><strong>Los márgenes son los más altos del mundo digital</strong> — si lo vendés en tu propia plataforma, te quedás con el 90-95% de cada venta.</li>
+</ul>
+
+<div class="tip-box"><strong>Dato real 2026:</strong> El mercado global de ebooks supera los $22 mil millones de dólares y crece al 11% anual. Los consumidores individuales representan el 62% del mercado. Hay demanda real y creciente.</div>
+
+<h3>Los 5 modelos de negocio con ebooks</h3>
+<p>Hay más de una forma de monetizar un ebook. Entender cuál usarás desde el día 1 cambia completamente la estrategia:</p>
+
+<table>
+  <tr><th>Modelo</th><th>Cómo funciona</th><th>Precio típico</th></tr>
+  <tr><td><strong>Venta directa</strong></td><td>Vos publicás, vos cobrás. Control total.</td><td>$9 – $49</td></tr>
+  <tr><td><strong>Amazon KDP</strong></td><td>Acceso a millones de lectores. 70% de royalty entre $2.99–$9.99.</td><td>$2.99 – $9.99</td></tr>
+  <tr><td><strong>Hotmart / Infoproductos</strong></td><td>Sistema de afiliados integrado. Otros venden por vos.</td><td>$17 – $97</td></tr>
+  <tr><td><strong>Gumroad / Payhip</strong></td><td>Link directo desde redes. Setup en minutos.</td><td>$9 – $39</td></tr>
+  <tr><td><strong>Lead Magnet</strong></td><td>Ebook gratis o barato para captar leads y vender algo más caro atrás.</td><td>$0 – $9</td></tr>
+</table>
+
+<h3>El modelo recomendado para empezar</h3>
+<p>Para tu primer ebook, la combinación más efectiva es: <strong>Gumroad o Hotmart como plataforma + Instagram como canal de venta</strong>. Por qué:</p>
+<ul>
+  <li>No necesitás web propia</li>
+  <li>El link de compra va en bio o en Stories</li>
+  <li>Cobrás desde el primer día</li>
+  <li>El setup tarda menos de 2 horas</li>
+</ul>
+
+<div class="example-box"><strong>Caso real:</strong> Con 1.000 seguidores en Instagram y un ebook de $19, necesitás que el <strong>2% de tu audiencia compre</strong> para hacer $380 en un lanzamiento. Eso son 20 ventas. Es absolutamente alcanzable.</div>
+
+<h3>La objeción más común: "Pero yo no soy escritor"</h3>
+<p>Esta es exactamente la razón por la que estás en este curso. Con las herramientas de IA que vas a aprender en el Módulo 3, <strong>el problema de "no saber escribir" dejó de existir</strong>. La IA escribe, vos corregís y le ponés tu perspectiva. Esa combinación es imbatible.</p>
+
+<div class="warning-box"><strong>Lo que SÍ necesitás:</strong> Conocer tu tema mejor que un principiante, ser honesto en tu marketing, y tener ganas de ejecutar. El ebook no lo hace la IA sola — lo hacés vos con la IA como asistente.</div>`,
+
+"2": `<h2>Elegí el nicho correcto antes de escribir una sola palabra</h2>
+
+<p>El error más costoso en la creación de un ebook no es escribir mal. Es escribir bien sobre algo que nadie quiere comprar. Este módulo te da el sistema para <strong>elegir un nicho ganador y validarlo en 24 horas</strong> antes de invertir tu tiempo.</p>
+
+<h3>Los 3 criterios de un nicho rentable</h3>
+<p>Un buen nicho para ebook cumple los tres al mismo tiempo:</p>
+<ul>
+  <li><strong>Tiene demanda probada</strong> — hay gente buscando soluciones activamente (no solo interesada en el tema).</li>
+  <li><strong>Tiene disposición a pagar</strong> — el mercado ya compra productos informativos o cursos relacionados.</li>
+  <li><strong>Vos tenés algo que aportar</strong> — experiencia vivida, resultados propios, o perspectiva diferente.</li>
+</ul>
+
+<div class="tip-box"><strong>Los nichos más rentables en 2026:</strong> Finanzas personales, productividad con IA, freelancing y trabajo remoto, salud y bienestar, marketing digital, desarrollo personal, crianza y familia, negocios online para principiantes.</div>
+
+<h3>El método de validación en 24 horas</h3>
+<p>No necesitás semanas de investigación. Este proceso toma menos de un día:</p>
+
+<ol>
+  <li><strong>Amazon KDP:</strong> Buscá palabras clave de tu nicho en Amazon. Si hay libros con más de 50 reseñas en tu categoría, la demanda está validada.</li>
+  <li><strong>Google Trends:</strong> Ingresá el tema y revisá la tendencia en los últimos 12 meses. Querés tendencia estable o en crecimiento.</li>
+  <li><strong>Instagram/TikTok:</strong> Buscá el hashtag del nicho. Si hay creadores con buena interacción hablando del tema, hay audiencia.</li>
+  <li><strong>Grupos de Facebook:</strong> Buscá grupos del nicho. Las preguntas más repetidas son ideas de capítulos para tu ebook.</li>
+</ol>
+
+<div class="example-box"><strong>Ejercicio práctico:</strong> Abrí Amazon.com, buscá "productivity AI" o "finanzas personales principiantes" y revisá los primeros 10 resultados. Cuántas reseñas tienen. Qué temas se repiten en los títulos. Eso es tu investigación de mercado.</div>
+
+<h3>Cómo usar IA para validar la idea</h3>
+<p>Podés pedirle a Claude o ChatGPT que analice la viabilidad de tu nicho con este prompt:</p>
+
+<span class="prompt-label">Prompt de validación de nicho</span>
+<div class="prompt-box">Quiero crear un ebook sobre [TU TEMA] dirigido a [TU AUDIENCIA IDEAL].
+Analizá:
+1. ¿Tiene demanda real este tema? ¿Por qué sí o por qué no?
+2. ¿Qué problemas concretos resuelve para la audiencia?
+3. ¿Qué libros o cursos ya existen sobre esto? (para ver competencia)
+4. ¿Qué ángulo o perspectiva diferente podría tener mi ebook para destacarse?
+5. Dame 5 posibles títulos que usen el formato "Cómo [resultado] sin [obstáculo]"</div>
+
+<h3>De nicho a título — el gancho que vende</h3>
+<p>Un buen título de ebook sigue uno de estos formatos:</p>
+<ul>
+  <li><strong>"Cómo [lograr resultado] sin [obstáculo típico]"</strong> — Ej: "Cómo lanzar tu primer ebook sin saber escribir"</li>
+  <li><strong>"[Número] [cosa] para [resultado]"</strong> — Ej: "7 pasos para tu primera venta digital"</li>
+  <li><strong>"El método [nombre] para [resultado]"</strong> — Ej: "El método 7 días para monetizar tu conocimiento"</li>
+  <li><strong>"[Resultado] en [tiempo] — incluso si [objeción]"</strong> — Ej: "Ingresos pasivos en 30 días, incluso si empezás desde cero"</li>
+</ul>
+
+<div class="warning-box"><strong>Antes de pasar al Módulo 3 necesitás tener:</strong> Tu nicho definido, tu audiencia ideal descrita en una oración, y un título tentativo para tu ebook. Sin eso, el proceso de escritura con IA no da buenos resultados.</div>`,
+
+"3": `<h2>Escribí tu ebook completo con IA en una sesión de trabajo</h2>
+
+<p>Acá está el cambio de juego real de este curso: <strong>lo que antes tardaba semanas, hoy tarda horas</strong>. Pero hay una forma correcta y una incorrecta de usar la IA para escribir. Te enseñamos la correcta.</p>
+
+<h3>La regla de oro: vos sos el director, la IA es tu escritor</h3>
+<p>El error más común es pedirle a la IA que "escriba el ebook completo" y pegar lo que devuelve. El resultado es genérico, sin personalidad y sin valor real. El enfoque correcto es:</p>
+<ol>
+  <li>Vos definís la estructura y el ángulo único</li>
+  <li>La IA redacta cada sección según tus instrucciones precisas</li>
+  <li>Vos editás, agregás ejemplos personales y le ponés tu voz</li>
+  <li>La IA pule el resultado final</li>
+</ol>
+
+<h3>Paso 1: Generá el índice con IA</h3>
+<p>Antes de escribir, necesitás la estructura completa. Usá este prompt:</p>
+
+<span class="prompt-label">Prompt para generar el índice</span>
+<div class="prompt-box">Sos un experto en [NICHO] y voy a crear un ebook sobre [TEMA] dirigido a [AUDIENCIA].
+
+El ebook se llama: "[TÍTULO]"
+Extensión objetivo: 30-50 páginas (un ebook de entrada, no un libro completo)
+Tono: práctico, directo, sin relleno
+
+Creá un índice detallado con:
+- Introducción (el problema que resuelve y para quién es)
+- 6 a 8 capítulos principales con subtemas
+- Conclusión con llamado a la acción
+- 1 bonus práctico (checklist, plantilla o recurso descargable)
+
+Para cada capítulo, indicá: título, objetivo de ese capítulo en una oración, y 3 subtemas que debería cubrir.</div>
+
+<h3>Paso 2: Escribí capítulo por capítulo</h3>
+<p>Una vez que tenés el índice aprobado (ajustalo a tu criterio), escribís cada capítulo con este prompt:</p>
+
+<span class="prompt-label">Prompt para escribir cada capítulo</span>
+<div class="prompt-box">Escribí el Capítulo [NÚMERO]: "[TÍTULO DEL CAPÍTULO" del ebook "[NOMBRE DEL EBOOK]".
+
+Contexto del ebook: [pegá el resumen de 2-3 líneas sobre de qué trata]
+Audiencia: [quién lo va a leer y cuál es su nivel]
+Tono: [directo/cercano/profesional — elegí uno]
+
+El capítulo debe:
+- Tener entre 600 y 900 palabras
+- Incluir al menos 1 ejemplo concreto o caso práctico
+- Terminar con 1 ejercicio o acción que el lector puede hacer hoy
+- Evitar relleno motivacional y frases genéricas
+- Sonar como lo escribió una persona real, no una IA
+
+Subtemas a cubrir: [listá los subtemas del índice para este capítulo]</div>
+
+<div class="tip-box"><strong>Por qué Claude es mejor para esto:</strong> Claude mantiene coherencia entre capítulos mejor que otros modelos. Si le pegás el contexto del ebook al inicio de la conversación y escribís todos los capítulos en la misma sesión, el tono y los conceptos van a ser consistentes de principio a fin.</div>
+
+<h3>Paso 3: Revisá y personalizá</h3>
+<p>Antes de dar el ebook por terminado, hacé este checklist en cada capítulo:</p>
+<ul>
+  <li>¿Agregué al menos 1 ejemplo de mi propia experiencia o de alguien real?</li>
+  <li>¿Cambié las frases que suenan a IA? (Las que empiezan con "Es importante destacar que..." o "En resumen...")</li>
+  <li>¿El tono suena a mí? ¿Es como yo hablaría?</li>
+  <li>¿El ejercicio final de cada capítulo es específico y accionable?</li>
+</ul>
+
+<h3>Paso 4: Introducción y conclusión al final</h3>
+<p>Contraintuitivo pero funciona: escribí la introducción después de tener todos los capítulos listos. Así sabés exactamente qué prometió el ebook y podés ser honesto y preciso con el lector.</p>
+
+<span class="prompt-label">Prompt para la introducción</span>
+<div class="prompt-box">Ya tengo los capítulos del ebook. Ahora escribí la introducción.
+
+Tiene que:
+- Comenzar con una historia o situación con la que el lector se identifique (2-3 párrafos)
+- Explicar claramente para quién es este ebook y para quién NO es
+- Decirle al lector qué va a poder hacer cuando termine de leerlo
+- Tener un tono personal, como si el autor le estuviera hablando directamente
+- Extensión: 400-500 palabras máximo
+
+El ebook se llama: "[TÍTULO]"
+Los temas que cubre son: [listá los capítulos]</div>
+
+<div class="example-box"><strong>Tiempo real de producción:</strong> Con este flujo, un ebook de 40 páginas se puede tener en borrador en 3-4 horas de trabajo, incluyendo la revisión. Antes de la IA, el mismo proceso tomaba 2-4 semanas.</div>`,
+
+"4": `<h2>Que se vea profesional sin saber de diseño</h2>
+
+<p>El contenido puede ser excelente, pero si el diseño es amateur, la percepción de valor cae. La buena noticia es que <strong>Canva hace el 90% del trabajo visual por vos</strong>, y en este módulo te damos el flujo exacto.</p>
+
+<h3>Las dos partes del diseño de un ebook</h3>
+<ul>
+  <li><strong>La portada:</strong> Lo que vende el ebook desde afuera. Es tu imagen de producto.</li>
+  <li><strong>El interior:</strong> La maquetación del texto. Lo que el lector ve cuando lo abre.</li>
+</ul>
+
+<h3>Paso 1: La portada en Canva</h3>
+<p>Entrá a canva.com → buscá "portada de ebook" en la barra de búsqueda. Vas a encontrar cientos de plantillas. Criterios para elegir una buena:</p>
+<ul>
+  <li>Fondo oscuro o con contraste alto (se ve mejor en pantalla)</li>
+  <li>Tipografía legible incluso en miniatura (importante para redes)</li>
+  <li>Espacio visual limpio — menos es más</li>
+  <li>Colores alineados a tu nicho (finanzas = azul/verde/negro; salud = verde/blanco; lifestyle = colores vivos)</li>
+</ul>
+
+<div class="tip-box"><strong>Truco de IA para la portada:</strong> Usá ChatGPT (DALL-E) o Ideogram para generar la imagen de fondo o un elemento visual. Prompt de ejemplo: <em>"Imagen minimalista para portada de ebook sobre productividad con IA. Fondo oscuro azul marino, elementos geométricos sutiles, sin texto. Estilo moderno y profesional."</em> Descargá la imagen y pegala en Canva como fondo.</div>
+
+<h3>Los elementos que no pueden faltar en la portada</h3>
+<ol>
+  <li><strong>Título principal</strong> — el más grande y visible</li>
+  <li><strong>Subtítulo</strong> — refuerza el beneficio o aclara para quién es</li>
+  <li><strong>Tu nombre o marca</strong> — establece autoría y confianza</li>
+  <li><strong>Un elemento visual</strong> — imagen, ícono o patrón que refuerce el tema</li>
+</ol>
+
+<h3>Paso 2: El interior del ebook</h3>
+<p>Para el interior, hay dos opciones:</p>
+<ul>
+  <li><strong>Opción A (más rápida):</strong> Google Docs → exportar como PDF. Limpio, sencillo y funcional.</li>
+  <li><strong>Opción B (más visual):</strong> Canva → plantilla "Propuesta de negocio" o "Informe" → adaptarla como interior de ebook.</li>
+</ul>
+
+<p>Para la mayoría de los ebooks de entrada ($9-$29), la Opción A es suficiente y te permite enfocarte en el contenido.</p>
+
+<h3>Tipografía que funciona para ebooks</h3>
+<table>
+  <tr><th>Uso</th><th>Fuente recomendada</th><th>Tamaño</th></tr>
+  <tr><td>Título de capítulo</td><td>Montserrat Bold / Playfair Display</td><td>24-28px</td></tr>
+  <tr><td>Subtítulo</td><td>Montserrat SemiBold</td><td>16-18px</td></tr>
+  <tr><td>Texto corrido</td><td>Georgia / Lato / Open Sans</td><td>12-14px</td></tr>
+  <tr><td>Cajas y destacados</td><td>Misma que subtítulo</td><td>12-13px</td></tr>
+</table>
+
+<h3>Formato del PDF final</h3>
+<ul>
+  <li><strong>Tamaño:</strong> A4 o Letter (8.5 x 11 pulgadas)</li>
+  <li><strong>Márgenes:</strong> 2.5 cm en todos los lados</li>
+  <li><strong>Interlineado:</strong> 1.5 o doble espacio para facilitar la lectura</li>
+  <li><strong>Páginas:</strong> Numeradas desde la introducción (no la portada)</li>
+  <li><strong>Peso del archivo:</strong> Idealmente menos de 10MB para facilitar la descarga</li>
+</ul>
+
+<div class="example-box"><strong>Checklist pre-entrega:</strong> ¿La portada se ve bien en 300x400px? ¿El PDF abre en menos de 5 segundos? ¿El texto tiene al menos 12px? ¿Los links internos funcionan? ¿Hay número de página en cada hoja? ✓</div>
+
+<div class="warning-box"><strong>Error frecuente:</strong> Hacer el diseño demasiado complicado. Un ebook con texto bien formateado y portada limpia se percibe más profesional que uno con 20 colores y 10 fuentes distintas. Elegí una paleta de 2-3 colores y 2 tipografías máximo.</div>`,
+
+"5": `<h2>Hotmart vs Gumroad vs Amazon KDP — La comparativa real</h2>
+
+<p>Una vez que tenés el ebook listo, llega la pregunta que más confunde: <strong>¿dónde lo publico?</strong>. No hay una respuesta única, pero hay una respuesta correcta para cada situación.</p>
+
+<h3>Comparativa directa de plataformas</h3>
+
+<table>
+  <tr><th>Plataforma</th><th>Comisión</th><th>Tráfico propio</th><th>Afiliados</th><th>Ideal para</th></tr>
+  <tr><td><strong>Gumroad</strong></td><td>10% + procesador</td><td>No</td><td>Sí (limitado)</td><td>Creadores con audiencia propia</td></tr>
+  <tr><td><strong>Payhip</strong></td><td>5% (plan gratis)</td><td>No</td><td>Sí</td><td>Máximo margen desde el inicio</td></tr>
+  <tr><td><strong>Hotmart</strong></td><td>~9.9% + fijo</td><td>Pequeño</td><td>Sí (muy robusto)</td><td>Sistema de afiliados LATAM</td></tr>
+  <tr><td><strong>Amazon KDP</strong></td><td>30-65% de royalty</td><td>Sí (enorme)</td><td>No directo</td><td>Escala en inglés o descubrimiento</td></tr>
+  <tr><td><strong>Etsy</strong></td><td>6.5% + fee</td><td>Sí (orgánico)</td><td>No</td><td>Nichos visuales y creativos</td></tr>
+</table>
+
+<h3>Recomendación por situación</h3>
+
+<div class="tip-box"><strong>Si ya tenés audiencia en Instagram/redes:</strong> Empezá con Gumroad o Payhip. Configurás en 20 minutos, pegás el link en bio y empezás a vender. Cero fricción técnica.</div>
+
+<div class="example-box"><strong>Si querés el sistema de afiliados desde el día 1:</strong> Hotmart es la mejor opción para el mercado latinoamericano. Otros creadores pueden promocionar tu ebook a cambio de una comisión, lo que multiplica tu alcance sin costo extra.</div>
+
+<div class="warning-box"><strong>Si apuntás al mercado anglosajón o querés descubrimiento orgánico:</strong> Amazon KDP es la puerta. Con 70% de royalty entre $2.99 y $9.99, el volumen puede compensar el precio bajo.</div>
+
+<h3>La estrategia de precio</h3>
+<p>El precio de un ebook de entrada en español tiene rangos claros según la percepción de valor:</p>
+<ul>
+  <li><strong>$7 - $9:</strong> Entrada de barrera mínima. Alto volumen, bajo margen. Ideal como lead magnet.</li>
+  <li><strong>$17 - $27:</strong> El punto ideal para empezar. El cliente percibe valor real y vos tenés margen decente.</li>
+  <li><strong>$37 - $49:</strong> Ebook premium o con bonus incluidos (plantillas, checklist, acceso a grupo). Requiere más copy de venta.</li>
+  <li><strong>$97+:</strong> No es un ebook estándar — es una guía completa con soporte, templates y recursos. Para audiencias que ya te conocen.</li>
+</ul>
+
+<h3>Configuración rápida en Gumroad (el más rápido)</h3>
+<ol>
+  <li>Entrá a gumroad.com → Create account (gratis)</li>
+  <li>New product → Digital product</li>
+  <li>Subí el PDF de tu ebook</li>
+  <li>Subí la imagen de portada como thumbnail</li>
+  <li>Escribí la descripción (el Módulo 6 te enseña a redactar el copy de venta)</li>
+  <li>Configurá el precio</li>
+  <li>Publicar → copiás el link → lo ponés en tu bio de Instagram</li>
+</ol>
+
+<p>Total del proceso: <strong>menos de 30 minutos</strong>.</p>
+
+<div class="tip-box"><strong>Consejo de pricing:</strong> Empezá con un precio de lanzamiento con descuento temporal (ej: "Precio de lanzamiento $9 por 72hs, después sube a $27"). Esto genera urgencia real y te da primeras ventas y reseñas que podés usar como prueba social.</div>`,
+
+"6": `<h2>Creativos visuales para vender tu ebook en Instagram</h2>
+
+<p>Podés tener el mejor ebook del mundo, pero si nadie lo ve, no lo comprás. En 2026, <strong>Instagram sigue siendo el canal más efectivo para vender productos digitales en español</strong>, y el contenido visual es lo que genera tráfico hacia tu link de venta.</p>
+
+<h3>Los 4 tipos de contenido que venden ebooks en Instagram</h3>
+<ul>
+  <li><strong>Reels educativos:</strong> Dame un consejo gratis relacionado al tema del ebook → al final mencionás que tenés más en el ebook.</li>
+  <li><strong>Carrusel de valor:</strong> "5 cosas que aprendí sobre X" → última diapositiva es el CTA al ebook.</li>
+  <li><strong>Stories con sticker de link:</strong> La forma más directa. "Link al ebook en las próximas 24hs".</li>
+  <li><strong>Post de lanzamiento:</strong> Una imagen estática o Reel que muestra la portada del ebook con el beneficio principal.</li>
+</ul>
+
+<h3>Generá las imágenes con ChatGPT (DALL-E)</h3>
+<p>Para crear los visuales de tus posts sin ser diseñador:</p>
+
+<span class="prompt-label">Prompt para imagen de post de ebook</span>
+<div class="prompt-box">Creá una imagen para Instagram (1080x1080px) para promocionar un ebook sobre [TEMA].
+
+Estilo: minimalista y profesional
+Paleta de colores: [tus colores: ej. negro, dorado y blanco]
+Elementos visuales: [ícono relacionado al tema, ej. libro, gráfico, etc.]
+Sin texto en la imagen (el texto lo pongo yo encima en Canva)
+Fondo: [oscuro / claro / degradado — elegí uno]
+Referencia de estilo: moderno, limpio, como publicidad de producto digital premium</div>
+
+<h3>Animá tus imágenes con IA para los Reels</h3>
+<p>Las imágenes estáticas ya no son suficientes. Las herramientas de animación IA te permiten darle movimiento a cualquier imagen en minutos:</p>
+
+<table>
+  <tr><th>Herramienta</th><th>Qué hace</th><th>Precio</th></tr>
+  <tr><td><strong>Runway ML</strong></td><td>Anima imágenes con movimiento cinematográfico</td><td>Desde $15/mes</td></tr>
+  <tr><td><strong>Kling AI</strong></td><td>Video corto desde imagen + prompt de texto</td><td>Créditos desde $10</td></tr>
+  <tr><td><strong>Pika Labs</strong></td><td>Animación de imagen fija con prompt</td><td>Plan gratis disponible</td></tr>
+  <tr><td><strong>CapCut</strong></td><td>Templates de Reels + efectos automáticos</td><td>Gratis</td></tr>
+</table>
+
+<h3>El flujo completo para crear un Reel de venta</h3>
+<ol>
+  <li><strong>Imagen base:</strong> Generala con ChatGPT (DALL-E) o Midjourney con prompt específico</li>
+  <li><strong>Animación:</strong> Subila a Runway o Kling → prompt: "suave movimiento de cámara hacia adelante, efecto cinematográfico, sin distorsión de texto"</li>
+  <li><strong>Texto y edición:</strong> Abrí CapCut → pegá el video animado → agregá subtítulos, música y texto de gancho</li>
+  <li><strong>CTA final:</strong> Los últimos 2 segundos del Reel: "Link en bio →" con animación</li>
+</ol>
+
+<div class="tip-box"><strong>El gancho en los primeros 3 segundos es todo:</strong> Si el primer frame no para el scroll, el Reel muere. Usá texto provocador: "Nadie te dijo esto sobre [tema]" o "Hice $X en mi primer mes vendiendo [producto] — así fue".</div>
+
+<h3>Copy para el caption del post de lanzamiento</h3>
+<p>Usá esta estructura probada:</p>
+
+<span class="prompt-label">Prompt para generar el caption de lanzamiento</span>
+<div class="prompt-box">Escribí un caption de Instagram para anunciar el lanzamiento de mi ebook "[TÍTULO]" sobre [TEMA].
+
+Audiencia: [descripción de tu seguidor ideal]
+Precio de lanzamiento: [precio] por [tiempo limitado]
+Link: [URL de compra]
+
+El caption debe:
+- Empezar con una pregunta o afirmación que genere identificación
+- Mencionar 3 beneficios concretos (no características, sino resultados)
+- Incluir prueba social si la tenés (testimonios, resultados propios)
+- Terminar con urgencia real (tiempo limitado o precio que sube)
+- CTA claro: "Link en bio" o "Escribime 'EBOOK' por DM"
+- Máximo 150 palabras (los captions cortos convierten mejor en 2026)</div>`,
+
+"7": `<h2>El plan de acción día a día para conseguir tus primeras ventas reales</h2>
+
+<p>Publicar el ebook no es lanzarlo. Lanzar es un proceso activo de 7 días que, si lo ejecutás correctamente, te da las primeras ventas y los primeros datos reales de tu mercado.</p>
+
+<h3>Los 7 días del lanzamiento</h3>
+
+<table>
+  <tr><th>Día</th><th>Acción principal</th><th>Objetivo</th></tr>
+  <tr><td><strong>Día -2</strong></td><td>Teaser en Stories: "Viene algo que vengo preparando hace semanas..."</td><td>Generar expectativa</td></tr>
+  <tr><td><strong>Día -1</strong></td><td>Stories revelando el tema. "Mañana lo lanzo. ¿Querés ser el primero en saber?"</td><td>Captar interesados</td></tr>
+  <tr><td><strong>Día 1</strong></td><td>Post de lanzamiento + Stories con link. Email o DM a interesados previos.</td><td>Primeras ventas</td></tr>
+  <tr><td><strong>Día 2</strong></td><td>Reel educativo relacionado al tema del ebook + mención del ebook al final</td><td>Alcance orgánico</td></tr>
+  <tr><td><strong>Día 3</strong></td><td>Repost de testimonios si ya tenés. Carrusel "Lo que aprendí sobre X"</td><td>Prueba social</td></tr>
+  <tr><td><strong>Día 4</strong></td><td>Stories con preguntas frecuentes sobre el ebook. Responder objeciones.</td><td>Convertir indecisos</td></tr>
+  <tr><td><strong>Día 5</strong></td><td>Reel con historia personal relacionada al tema + CTA al ebook</td><td>Conexión emocional</td></tr>
+  <tr><td><strong>Día 6</strong></td><td>Recordatorio de precio de lanzamiento: "quedan 24 horas"</td><td>Urgencia real</td></tr>
+  <tr><td><strong>Día 7</strong></td><td>Último día de precio especial. Stories countdown. Email si tenés lista.</td><td>Cierre del lanzamiento</td></tr>
+</table>
+
+<h3>Las 3 fuentes de tráfico del día 1</h3>
+<p>No dependas de un solo canal. El día del lanzamiento activás los tres al mismo tiempo:</p>
+<ul>
+  <li><strong>Instagram:</strong> Post + Stories + Reels. El link va en bio.</li>
+  <li><strong>WhatsApp/Telegram:</strong> Mensaje personal a las personas de tu red que encajan con el tema del ebook. No spam masivo — mensajes específicos a personas específicas.</li>
+  <li><strong>Grupos de Facebook/Discord:</strong> Si pertenecés a grupos del nicho, compartí el lanzamiento (verificá primero que el grupo lo permita).</li>
+</ul>
+
+<div class="tip-box"><strong>La primera venta es la más importante:</strong> Aunque sea a un familiar o amigo con descuento, la primera venta prueba que el sistema funciona (pago procesado, archivo entregado, cliente contento). Luego escala desde ahí.</div>
+
+<h3>Qué hacer si no llegan ventas en los primeros 3 días</h3>
+<p>No entres en pánico. Revisá este diagnóstico:</p>
+<ul>
+  <li><strong>¿El link funciona?</strong> — Compralo vos mismo para verificar el flujo completo.</li>
+  <li><strong>¿La portada se ve atractiva en miniatura?</strong> — Mostrásela a alguien de afuera y preguntale si compraría.</li>
+  <li><strong>¿El precio es correcto para tu audiencia?</strong> — Si tenés poca audiencia, bajá el precio de lanzamiento y conseguí 5-10 testimonios primero.</li>
+  <li><strong>¿Estás publicando suficiente?</strong> — 1 post por día durante 7 días es el mínimo.</li>
+  <li><strong>¿El copy explica el beneficio claro?</strong> — Si la gente no entiende qué gana comprando, no compra.</li>
+</ul>
+
+<h3>Después del lanzamiento: el sistema de ventas pasivas</h3>
+<p>El lanzamiento es activo. Lo que viene después es automatizado:</p>
+<ol>
+  <li>El link queda fijo en tu bio de Instagram</li>
+  <li>Cada Reel que publicás menciona el ebook al final</li>
+  <li>Configurás un sistema de respuesta automática en DMs ("Escribime 'EBOOK' para recibir el link")</li>
+  <li>Si usás Hotmart, activás el programa de afiliados para que otros promuevan</li>
+</ol>
+
+<div class="example-box"><strong>Proyección realista:</strong> Con 1.000 seguidores comprometidos y un buen lanzamiento, podés esperar 10-30 ventas en la primera semana. Con el contenido constante posterior, sumás 5-15 ventas por mes en piloto automático. El ebook trabaja mientras vos dormís.</div>`,
+
+"8": `<h2>Que otros vendan por vos mientras dormís</h2>
+
+<p>Llegaste al punto más interesante del negocio de los ebooks: <strong>el sistema de afiliados</strong>. Es la razón por la que los creadores que escalan no están todo el día publicando contenido ellos mismos — tienen un ejército de personas que promueven por ellos.</p>
+
+<h3>¿Cómo funciona el sistema de afiliados?</h3>
+<p>Simple: otras personas promocionan tu ebook y reciben una comisión por cada venta que generan. Vos ganás ventas sin hacer publicidad. Ellos ganan dinero sin crear un producto. Todo el mundo gana.</p>
+<ul>
+  <li><strong>Comisión típica:</strong> 30% a 50% del precio de venta</li>
+  <li><strong>Tracking automático:</strong> La plataforma registra qué afiliado generó cada venta</li>
+  <li><strong>Pago automático:</strong> La plataforma paga al afiliado directamente — vos no tenés que hacer nada</li>
+</ul>
+
+<div class="tip-box"><strong>En Hotmart:</strong> Activá el programa de afiliados desde el panel de tu producto. Definí la comisión y aprobá manualmente a los afiliados para controlar quién te representa.</div>
+
+<h3>Cómo conseguir tus primeros afiliados</h3>
+<ol>
+  <li><strong>Tu audiencia actual:</strong> Las personas que ya te compran y les gustó el ebook son los mejores afiliados. Preguntales directamente.</li>
+  <li><strong>Creadores del mismo nicho:</strong> Mandales el ebook gratis para que lo revisen. Si les gusta, muchos aceptan ser afiliados.</li>
+  <li><strong>Grupos de afiliados:</strong> Hay grupos en Facebook y Telegram específicamente para afiliados buscando productos que promocionar.</li>
+  <li><strong>Hotmart marketplace:</strong> Si aprobás que tu producto aparezca en el marketplace de Hotmart, cualquier afiliado registrado puede promocionarlo.</li>
+</ol>
+
+<h3>Automatizá el seguimiento con email marketing</h3>
+<p>Una vez que tenés compradores, tenés la base de tu negocio digital. El email es el activo más valioso:</p>
+<ul>
+  <li><strong>Herramienta gratuita para empezar:</strong> Mailchimp (hasta 500 contactos gratis) o Brevo (antes Sendinblue)</li>
+  <li><strong>Secuencia automática post-compra:</strong> Email 1 (bienvenida + link al PDF) → Email 2 (a los 3 días: preguntá cómo va la lectura) → Email 3 (a los 7 días: ofrecé el siguiente producto o un upsell)</li>
+</ul>
+
+<span class="prompt-label">Prompt para crear tu secuencia de emails post-compra</span>
+<div class="prompt-box">Creá una secuencia de 3 emails para enviar a alguien que compró mi ebook "[TÍTULO]".
+
+Email 1 (inmediato): Bienvenida + entrega del producto
+Email 2 (3 días después): Check-in sobre la experiencia de lectura, resolver dudas
+Email 3 (7 días después): CTA hacia [el próximo producto/oferta que tengas]
+
+Tono: [cercano y directo / profesional / como si les escribiera a amigos]
+Cada email: máximo 150 palabras. Sin relleno. Con CTA claro al final de cada uno.</div>
+
+<h3>El upsell: convirtiendo un ebook de $19 en un negocio de $97</h3>
+<p>El ebook es el primer escalón. La secuencia completa puede verse así:</p>
+<ol>
+  <li>Ebook de entrada: $9-$19 (atrae compradores)</li>
+  <li>Upsell inmediato: templates + checklist adicional: $29 (30-40% acepta)</li>
+  <li>Curso corto en video: $97 (para los que quieren ir más profundo)</li>
+  <li>Membresía o comunidad: $9-$29/mes (tu propio modelo DESAF-IA)</li>
+</ol>
+
+<div class="example-box"><strong>El ebook como puerta de entrada a tu comunidad:</strong> Si ya tenés DESAF-IA en Skool, tu ebook puede ser la herramienta perfecta para captar nuevos miembros. El ebook resuelve un problema puntual → al final del ebook, invitás a unirse a la comunidad donde pueden aprender mucho más.</div>
+
+<div class="tip-box"><strong>Siguiente paso después de este curso:</strong> Elegí UNA plataforma de venta, subí tu ebook esta semana y publicá el primer contenido de lanzamiento. La perfección es el enemigo del lanzamiento. Un ebook imperfecto publicado hoy vale infinitamente más que uno perfecto que nunca sale.</div>
+
+<h3>Resumen: tu checklist completo de 0 a publicado</h3>
+<ul>
+  <li>✅ Nicho validado con demanda real</li>
+  <li>✅ Título con hook claro y beneficio definido</li>
+  <li>✅ Índice generado con IA y aprobado por vos</li>
+  <li>✅ Capítulos escritos con IA + revisados y personalizados</li>
+  <li>✅ Portada diseñada en Canva</li>
+  <li>✅ Interior formateado en Google Docs o Canva</li>
+  <li>✅ Cuenta creada en Gumroad / Hotmart / Payhip</li>
+  <li>✅ Producto configurado con precio y descripción</li>
+  <li>✅ Creativos de Instagram generados con IA</li>
+  <li>✅ Plan de 7 días de lanzamiento ejecutado</li>
+  <li>✅ Sistema de afiliados activado</li>
+  <li>✅ Secuencia de email post-compra configurada</li>
+</ul>`
+};
+
+const TOTAL = 8;
+let done = new Set(JSON.parse(localStorage.getItem('desafia_ebook_done')||'[]'));
+
+function updateProgress(){
+  const n = done.size;
+  document.getElementById('prog-txt').textContent = n+' / '+TOTAL+' módulos';
+  document.getElementById('prog-fill').style.width = (n/TOTAL*100)+'%';
+  for(let i=1;i<=TOTAL;i++){
+    const chk = document.getElementById('chk-'+i);
+    const btn = document.getElementById('btn-'+i);
+    if(done.has(i)){
+      if(chk) chk.style.opacity='1';
+      if(btn){ btn.classList.add('done'); btn.innerHTML='<i class="fas fa-check"></i> Completado'; }
+    }
+  }
+}
+
+function showModule(id){
+  document.getElementById('welcome').style.display='none';
+  for(let i=1;i<=TOTAL;i++){
+    const s=document.getElementById('module-'+i);
+    const it=document.getElementById('item-'+i);
+    if(s) s.style.display= i===id?'block':'none';
+    if(it) it.classList.toggle('active', i===id);
+  }
+  const body = document.getElementById('body-'+id);
+  if(body && !body.innerHTML) body.innerHTML = MOD[id] || '';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function completeModule(id){
+  done.add(id);
+  localStorage.setItem('desafia_ebook_done', JSON.stringify([...done]));
+  updateProgress();
+}
+
+updateProgress();
+</script>
+</body>
+</html>
