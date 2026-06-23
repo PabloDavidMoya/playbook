@@ -143,7 +143,39 @@
 
 
 /* ─────────────────────────────────────────────────────
-   5. SCROLL REVEAL ANIMATIONS
+   5. DROPDOWNS DE NAVEGACIÓN (click-based)
+───────────────────────────────────────────────────── */
+(function () {
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (!dropdowns.length) return;
+
+  function closeAll(except) {
+    dropdowns.forEach(d => { if (d !== except) d.classList.remove('open'); });
+  }
+
+  dropdowns.forEach(dropdown => {
+    const trigger = dropdown.querySelector('a');
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains('open');
+      closeAll(null);
+      if (!isOpen) dropdown.classList.add('open');
+    });
+  });
+
+  // Cerrar al hacer clic fuera
+  document.addEventListener('click', () => closeAll(null));
+
+  // Cerrar al navegar a un link dentro del dropdown
+  document.querySelectorAll('.nav-dropdown-menu a').forEach(a => {
+    a.addEventListener('click', () => closeAll(null));
+  });
+})();
+
+
+/* ─────────────────────────────────────────────────────
+   6. SCROLL REVEAL ANIMATIONS
 ───────────────────────────────────────────────────── */
 (function () {
   const elements = document.querySelectorAll('.reveal');
